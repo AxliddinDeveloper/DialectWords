@@ -1,6 +1,6 @@
 ﻿namespace DialectWords.Models.Foundations.words
 {
-    public class word
+    public class Word
     {
         public Guid id { get; set; }
         public string AdabiyTil { get; set; }

@@ -16,7 +16,7 @@ namespace DialectWords.Brokers.Storages
 
 
         public IQueryable<Word> SelectAllWords() =>
-            SelectAllWords();
+            SelectAll<Word>();
 
         public async ValueTask<Word> SelectWordByIdAsync(Guid id) =>
             await SelectWordByIdAsync(id);

@@ -2,8 +2,14 @@
 // For Client
 //=============
 
+using DialectWords.Brokers.Storages;
+using DialectWords.Services.Foundations;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<StorageBroker>();
+builder.Services.AddTransient<IStorageBroker, StorageBroker>();
+builder.Services.AddTransient<IWordService, WordService>();
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())

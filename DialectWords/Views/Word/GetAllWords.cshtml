@@ -1,0 +1,54 @@
+﻿@model IQueryable<Word>
+
+@{
+    ViewData["Title"] = "GetAllWords";
+}
+
+<h1>GetAllWords</h1>
+<form method="get" asp-action="SearchGroup" class="form-inline p-2">
+    <div class="box">
+        <a asp-action="PostGroup" class="btn btn-outline-primary">
+            Add Group
+        </a>
+    </div>
+    <div class="form-group">
+        <input type="text" id="searchString" name="searchString" class="form-control" />
+        <button type="submit" class="btn btn-outline-primary">Search</button>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Group Name</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @{
+            int i = 1;
+            foreach (var word in Model)
+            {
+                <tr>
+                    <th scope="row">@i</th>
+                    <td>@word.AdabiyTil</td>
+                    <td>@word.Turkum</td>
+                    <td>@word.IngilizTilida</td>
+                    <td>@word.RusTilida</td>
+                    <td>@word.Transliteratsiya</td>
+                </tr>
+                i += 1;
+            }
+        }
+        <a asp-action="Forward" class="btn btn-outline-primary">
+            forward
+        </a>
+        <a asp-action="Back" class="btn btn-outline-primary">
+            back
+        </a>
+    </tbody>
+</table>

@@ -4,73 +4,58 @@
     ViewData["Title"] = "PostWord";
 }
 
-<h1>PostWord</h1>
-
 <h4>Word</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="PostWord">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="AdabiyTil" class="control-label"></label>
                 <input asp-for="AdabiyTil" class="form-control" />
-                <span asp-validation-for="AdabiyTil" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Transliteratsiya" class="control-label"></label>
                 <input asp-for="Transliteratsiya" class="form-control" />
-                <span asp-validation-for="Transliteratsiya" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Transkripsiya" class="control-label"></label>
                 <input asp-for="Transkripsiya" class="form-control" />
-                <span asp-validation-for="Transkripsiya" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Turkum" class="control-label"></label>
                 <input asp-for="Turkum" class="form-control" />
-                <span asp-validation-for="Turkum" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ShevaIzohi" class="control-label"></label>
                 <input asp-for="ShevaIzohi" class="form-control" />
-                <span asp-validation-for="ShevaIzohi" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Misollar" class="control-label"></label>
                 <input asp-for="Misollar" class="form-control" />
-                <span asp-validation-for="Misollar" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Sinonim" class="control-label"></label>
                 <input asp-for="Sinonim" class="form-control" />
-                <span asp-validation-for="Sinonim" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Omonim" class="control-label"></label>
                 <input asp-for="Omonim" class="form-control" />
-                <span asp-validation-for="Omonim" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Antonim" class="control-label"></label>
                 <input asp-for="Antonim" class="form-control" />
-                <span asp-validation-for="Antonim" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="OzlashganQatlam" class="control-label"></label>
                 <input asp-for="OzlashganQatlam" class="form-control" />
-                <span asp-validation-for="OzlashganQatlam" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="RusTilida" class="control-label"></label>
                 <input asp-for="RusTilida" class="form-control" />
-                <span asp-validation-for="RusTilida" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="IngilizTilida" class="control-label"></label>
                 <input asp-for="IngilizTilida" class="form-control" />
-                <span asp-validation-for="IngilizTilida" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

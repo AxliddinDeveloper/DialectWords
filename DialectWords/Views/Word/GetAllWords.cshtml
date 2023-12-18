@@ -6,9 +6,22 @@
 <form method="get" asp-action="SearchWord" class="form-group">
     <div class="form-group">
         <label>Search</label>
-        <input type="text" id="searchString" name="searchString" class="form-group" />
+        <input type="text" id="searchString" name="searchString" class="form-group" oninput="delayedSubmit(this)" />
     </div>
 </form>
+
+<script>
+    var delayTimer;
+
+    function delayedSubmit(input) {
+        clearTimeout(delayTimer);
+        delayTimer = setTimeout(function () {
+            input.form.submit();
+        }, 1000);
+    }
+</script>
+
+
 <form method="get" asp-action="GetAllWords" class="form-group">
     <label>Page Size</label>
     <select name="pageSize" onchange="this.form.submit()">

@@ -65,7 +65,7 @@ namespace DialectWords.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IQueryable<Word>> GetAllWords(int pageSize =1,int pageNumber = 1)
+        public ActionResult<IQueryable<Word>> GetAllWords(int pageSize = 10,int pageNumber = 1)
         {
             IQueryable<Word> words = this.wordService.RetrieveAllWords();
 
@@ -122,16 +122,20 @@ namespace DialectWords.Controllers
             if (!string.IsNullOrEmpty(searchString))
             {
                 foundWords = applicants.Where(a =>
-                    a.AdabiyTil.ToLower() == searchString.ToLower() ||
-                    a.Transliteratsiya.ToLower() == searchString.ToLower() ||
-                    a.Transkripsiya.ToLower() == searchString.ToLower() ||
-                    a.Sinonim.ToLower() == searchString.ToLower() ||
-                    a.Omonim.ToLower() == searchString.ToLower() ||
-                    a.Antonim.ToLower() == searchString.ToLower() ||
-                    a.Turkum.ToLower() == searchString.ToLower() ||
-                    a.OzlashganQatlam.ToLower() == searchString.ToLower() ||
-                    a.RusTilida.ToLower() == searchString.ToLower() ||
-                    a.IngilizTilida.ToLower() == searchString.ToLower()).ToList();
+                    a.AdabiyTil.ToLower().Contains(searchString.ToLower()) ||
+                    a.Transliteratsiya.ToLower().Contains(searchString.ToLower()) ||
+                    a.Transkripsiya.ToLower().Contains(searchString.ToLower()) ||
+                    a.Sinonim.ToLower().Contains(searchString.ToLower()) ||
+                    a.Omonim.ToLower().Contains(searchString.ToLower()) ||
+                    a.Antonim.ToLower().Contains(searchString.ToLower()) ||
+                    a.Turkum.ToLower().Contains(searchString.ToLower()) ||
+                    a.OzlashganQatlam.ToLower().Contains(searchString.ToLower()) ||
+                    a.RusTilida.ToLower().Contains(searchString.ToLower()) ||
+                    a.IngilizTilida.ToLower().Contains(searchString.ToLower())).ToList();
+            }
+            else
+            {
+                foundWords = applicants;
             }
 
             return View(foundWords);

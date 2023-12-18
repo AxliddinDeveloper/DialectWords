@@ -65,7 +65,7 @@ namespace DialectWords.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IQueryable<Word>> GetAllWords(int pageSize =10,int pageNumber = 1)
+        public ActionResult<IQueryable<Word>> GetAllWords(int pageSize =1,int pageNumber = 1)
         {
             IQueryable<Word> words = this.wordService.RetrieveAllWords();
 

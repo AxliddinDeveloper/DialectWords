@@ -11,12 +11,15 @@
 </form>
 <form method="get" asp-action="GetAllWords" class="form-group">
     <label>Page Size</label>
-    <select name="pageSize">
+    <select name="pageSize" onchange="this.form.submit()">
+        <option >select</option>
         <option value=1>1</option>
+        <option value=10>10</option>
         <option value=50>50</option>
         <option value=100>100</option>
     </select>
 </form>
+
 <table class="table">
     <thead>
         <tr>
@@ -34,7 +37,7 @@
             <div>
                 @{
                     int i = 1;
-                    @foreach (var word in Model.Words)
+                    foreach (var word in Model.Words)
                     {
                         <tr>
                             <th scope="row">@i</th>

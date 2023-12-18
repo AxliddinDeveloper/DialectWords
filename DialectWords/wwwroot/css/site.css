@@ -1,5 +1,12 @@
+@import url('site.css');
 html {
   font-size: 14px;
+}
+
+.navbar .nav-item :hover {
+    background-color: #aff39b;
+    border-radius: 10px;
+    font-size: 15px;
 }
 
 @media (min-width: 768px) {
@@ -19,4 +26,9 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
 }

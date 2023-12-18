@@ -1,10 +1,7 @@
-﻿using System.Drawing.Printing;
-using System.Security.Cryptography.X509Certificates;
-using DialectWords.Models;
+﻿using DialectWords.Models;
 using DialectWords.Models.Foundations.words;
 using DialectWords.Services.Foundations;
 using Microsoft.AspNetCore.Mvc;
-using NuGet.Packaging.Signing;
 
 namespace DialectWords.Controllers
 {
@@ -17,6 +14,12 @@ namespace DialectWords.Controllers
         {
             this.wordService = wordService;
             this.webHostEnvironment = webHostEnvironment;
+        }
+
+        [HttpGet]
+        public IActionResult LoyihaHaqida()
+        {
+            return View("LoyihaHaqida");
         }
 
         [HttpGet]
@@ -33,63 +36,54 @@ namespace DialectWords.Controllers
             return RedirectToAction("GetAllWords");
         }
 
-        public IActionResult Forward()
-        {
-            IQueryable<Word> words = this.wordService.RetrieveAllWords();
-
-            int pageNumber = 1, pageSize = 1;
-            pageNumber += 1;
-            var paginatedData = words
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .AsQueryable();
-
-            return RedirectToAction("GetAllWords", paginatedData);
-        }
-
-        public IActionResult Back()
-        {
-            IQueryable<Word> words = this.wordService.RetrieveAllWords();
-
-            int pageNumber = 1, pageSize = 1;
-
-            if ( pageNumber > 1)
-                pageNumber -= 1;
-
-            var paginatedData = words
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .AsQueryable();
-
-            return RedirectToAction("GetAllWords", paginatedData);
-        }
-
         [HttpGet]
-        public ActionResult<IQueryable<Word>> GetAllWords(int pageSize = 10,int pageNumber = 1)
+        public ActionResult<IQueryable<Word>> GetAllWords(int pageSize = 10, int pageNumber = 1, string searchString = "")
         {
             IQueryable<Word> words = this.wordService.RetrieveAllWords();
+            IQueryable<Word> foundWords;
 
-            int pages = words.Count();
-            int totalPages = pages / pageSize;
-            if (pages % pageSize != 0)
-                totalPages += 1;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                foundWords = words.Where(a =>
+                    a.AdabiyTil.ToLower().Contains(searchString.ToLower()) ||
+                    a.Transliteratsiya.ToLower().Contains(searchString.ToLower()) ||
+                    a.Transkripsiya.ToLower().Contains(searchString.ToLower()) ||
+                    a.Sinonim.ToLower().Contains(searchString.ToLower()) ||
+                    a.Omonim.ToLower().Contains(searchString.ToLower()) ||
+                    a.Antonim.ToLower().Contains(searchString.ToLower()) ||
+                    a.Turkum.ToLower().Contains(searchString.ToLower()) ||
+                    a.OzlashganQatlam.ToLower().Contains(searchString.ToLower()) ||
+                    a.RusTilida.ToLower().Contains(searchString.ToLower()) ||
+                    a.IngilizTilida.ToLower().Contains(searchString.ToLower())).AsQueryable();
+            }
+            else
+            {
+                foundWords = words;
+            }
 
-            var paginatedData = words
+            int totalItems = foundWords.Count();
+            int totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
+
+            var paginatedData = foundWords
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .AsQueryable();
 
-            WordsViewModel wordsViewModel = new WordsViewModel();
-
-            wordsViewModel.Words = paginatedData;
-            wordsViewModel.TotalPages = totalPages;
-            wordsViewModel.PageNumber = pageNumber;
+            WordsViewModel wordsViewModel = new WordsViewModel
+            {
+                Words = paginatedData,
+                TotalPages = totalPages,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                SearchString = searchString
+            };
 
             return View(wordsViewModel);
         }
-        
+
+
         [HttpGet]
-        public async ValueTask<ActionResult<Word>> Edit(Guid id)
+        public async ValueTask<ActionResult<Word>> EditWord(Guid id)
         {
             Word word = await this.wordService.RetrieveWordByIdAsync(id);
 
@@ -138,7 +132,7 @@ namespace DialectWords.Controllers
                 foundWords = applicants;
             }
 
-            return View(foundWords);
+            return View("GetAllWords" ,foundWords);
         }
     }
 }

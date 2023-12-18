@@ -6,66 +6,65 @@
 
 <h4>Word</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="PostWord">
-            <div class="form-group">
-                <label asp-for="AdabiyTil" class="control-label"></label>
-                <input asp-for="AdabiyTil" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label asp-for="Transliteratsiya" class="control-label"></label>
-                <input asp-for="Transliteratsiya" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label asp-for="Transkripsiya" class="control-label"></label>
-                <input asp-for="Transkripsiya" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label asp-for="Turkum" class="control-label"></label>
-                <input asp-for="Turkum" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label asp-for="ShevaIzohi" class="control-label"></label>
-                <input asp-for="ShevaIzohi" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label asp-for="Misollar" class="control-label"></label>
-                <input asp-for="Misollar" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label asp-for="Sinonim" class="control-label"></label>
-                <input asp-for="Sinonim" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label asp-for="Omonim" class="control-label"></label>
-                <input asp-for="Omonim" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label asp-for="Antonim" class="control-label"></label>
-                <input asp-for="Antonim" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label asp-for="OzlashganQatlam" class="control-label"></label>
-                <input asp-for="OzlashganQatlam" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label asp-for="RusTilida" class="control-label"></label>
-                <input asp-for="RusTilida" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label asp-for="IngilizTilida" class="control-label"></label>
-                <input asp-for="IngilizTilida" class="form-control" />
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-4">
+            <form asp-action="PostWord">
+                <div class="form-group">
+                    <label asp-for="AdabiyTil" class="control-label"></label>
+                    <input asp-for="AdabiyTil" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Transliteratsiya" class="control-label"></label>
+                    <input asp-for="Transliteratsiya" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Transkripsiya" class="control-label"></label>
+                    <input asp-for="Transkripsiya" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Turkum" class="control-label"></label>
+                    <input asp-for="Turkum" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="ShevaIzohi" class="control-label"></label>
+                    <textarea asp-for="ShevaIzohi" class="form-control" style="width: 300px; height: 150px;"></textarea>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Misollar" class="control-label"></label>
+                    <textarea asp-for="Misollar" class="form-control" style="width: 300px; height: 150px;"></textarea>
+                </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+                <div class="form-group">
+                    <label asp-for="Sinonim" class="control-label"></label>
+                    <input asp-for="Sinonim" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Omonim" class="control-label"></label>
+                    <input asp-for="Omonim" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Antonim" class="control-label"></label>
+                    <input asp-for="Antonim" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="OzlashganQatlam" class="control-label"></label>
+                    <input asp-for="OzlashganQatlam" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="RusTilida" class="control-label"></label>
+                    <input asp-for="RusTilida" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="IngilizTilida" class="control-label"></label>
+                    <input asp-for="IngilizTilida" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 @section Scripts {

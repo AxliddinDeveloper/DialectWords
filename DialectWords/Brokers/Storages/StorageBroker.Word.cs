@@ -19,14 +19,14 @@ namespace DialectWords.Brokers.Storages
             SelectAll<Word>();
 
         public async ValueTask<Word> SelectWordByIdAsync(Guid id) =>
-            await SelectWordByIdAsync(id);
+            await SelectAsync<Word>(id);
 
 
         public async ValueTask<Word> UpdateWordAsync(Word word) =>
-            await UpdateWordAsync(word);
+            await UpdateAsync<Word>(word);
 
         public async ValueTask<Word> DeleteWordAsync(Word word) =>
-            await DeleteWordAsync(word);
+            await DeleteAsync<Word>(word);
 
     }
 }

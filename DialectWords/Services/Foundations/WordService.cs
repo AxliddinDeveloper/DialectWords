@@ -16,8 +16,12 @@ namespace DialectWords.Services.Foundations
             this.storageBroker = storageBroker;
         }
 
-        public async ValueTask<Word> AddWordAsync(Word word) =>
-            await this.storageBroker.InsertWordAsync(word);
+        public async ValueTask<Word> AddWordAsync(Word word)
+        {
+            word.id = Guid.NewGuid();
+
+            return await this.storageBroker.InsertWordAsync(word);
+        }
 
         public IQueryable<Word> RetrieveAllWords() =>
             this.storageBroker.SelectAllWords();

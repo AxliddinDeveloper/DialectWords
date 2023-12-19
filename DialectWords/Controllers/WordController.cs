@@ -2,6 +2,7 @@
 using DialectWords.Models.Foundations.words;
 using DialectWords.Services.Foundations;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace DialectWords.Controllers
 {
@@ -68,6 +69,8 @@ namespace DialectWords.Controllers
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .AsQueryable();
+
+            ViewBag.Turkumlar = this.wordService.SelectItems();
 
             WordsViewModel wordsViewModel = new WordsViewModel
             {

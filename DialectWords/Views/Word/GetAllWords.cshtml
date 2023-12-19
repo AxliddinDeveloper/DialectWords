@@ -1,6 +1,5 @@
 ﻿@model WordsViewModel
 @{
-    ViewData["Title"] = "GetAllWords";
     int g = Model.PageSize;
     int a = Model.PageNumber;
     string j = Model.SearchString;
@@ -12,73 +11,41 @@
         b -= 1;
 }
 
-<form method="get" asp-action="GetAllWords" class="form-group">
-    <div class="form-group">
-        <label>Search</label>
-        <input type="text" id="searchString" name="searchString" class="form-group" placeholder="Search..." oninput="delayedSubmit(this)" />
+<div class="m-5 p-3 parent">
+    <div class="navbar-collapse collapse d-sm-inline-flex">
+        <a class="btn btn-outline-light text-primary" asp-area="" asp-controller="Word" asp-action="PostWord">Add Word</a>
     </div>
-    <div class="form-group">
-        <input type="hidden" id="pageSize" name="pageSize" value="@g" class="form-group" />
-    </div>
-</form>
+<div class="d-flex justify-content-between">
+    <form method="get" asp-action="GetAllWords" class="form-group p-2">
+        <label>Page Size:</label>
+        <select asp-for="PageSize" onchange="this.form.submit()" class="form-select">
+            <option >select</option>
+            <option value=2>2</option>
+            <option value=10>10</option>
+            <option value=50>50</option>
+            <option value=100>100</option>
+        </select>
+        <label>Turkumlar</label>
+        <select asp-for="SearchString" asp-items="@ViewBag.Turkumlar" onchange="this.form.submit()" class="form-select">
+            <option>select</option>
+        </select>
+    </form>
 
-<form method="get" asp-action="GetAllWords" class="form-group">
-    <label>Page Size</label>
-    <select asp-for="PageSize" onchange="this.form.submit()">
-        <option >select</option>
-        <option value=2>2</option>
-        <option value=10>10</option>
-        <option value=50>50</option>
-        <option value=100>100</option>
-    </select>
-</form>
+    <form method="get" asp-action="GetAllWords" class="form-group p-2">
+        <div class="form-group">
+            <label>Search:</label>
+            <input type="text" id="searchString" name="searchString" class="form-control" placeholder="Search..." oninput="delayedSubmit(this)" />
+        </div>
+        <div class="form-group">
+            <input type="hidden" id="pageSize" name="pageSize" value="@g" class="form-control" />
+        </div>
+    </form>
 
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        margin: 20px;
-    }
+</div>
 
-    form {
-        margin-bottom: 20px;
-    }
 
-    select {
-        margin-right: 10px;
-    }
 
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 30px;
-    }
-
-    th, td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-        word-wrap: break-word; /* Add this line to enable word wrapping */
-        max-width: 100px; /* Adjust the max-width as needed */
-    }
-
-    th {
-        background-color: #f2f2f2;
-    }
-
-    .pagination {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px;
-    }
-
-        .pagination a {
-            margin: 0 5px;
-        }
-</style>
-
-<div class="table-container">
+<div class="table-container mb-5">
     <table class="table table-striped table-responsive table-bordered dataTable datatable">
         <thead>
             <tr>
@@ -104,10 +71,10 @@
                 {
                     <tr>
                         <td>
-                            <a asp-controller="Word" asp-action="EditWord" asp-route-id="@word.id" class="btn btn-outline-primary btn-m1">
+                            <a asp-controller="Word" asp-action="EditWord" asp-route-id="@word.id" class="btn btn-outline-light text-dark h-25">
                                 Edit
                             </a>
-                            <a asp-controller="Word" asp-action="DeleteWord" asp-route-id="@word.id" class="btn btn-outline-danger btn-m1">
+                            <a asp-controller="Word" asp-action="DeleteWord" asp-route-id="@word.id" class="btn btn-outline-light text-danger h-25">
                                 Delete
                             </a>
                         </td>
@@ -131,14 +98,16 @@
         </tbody>
     </table>
 </div>
-@{
-    <a asp-action="GetAllWords" asp-route-pageSize="@g" asp-route-pageNumber="@b" asp-route-searchString ="@j" class="btn btn-outline-light text-black">
+
+    <a asp-action="GetAllWords" asp-route-pageSize="@g" asp-route-pageNumber="@b" asp-route-searchString="@j" class="btn btn-outline-light text-black">
         &lt;&lt;
     </a>
     <section class="form-check-inline text-center m-auto">@Model.PageNumber/@Model.TotalPages</section>
     <a asp-action="GetAllWords" asp-route-pageSize="@g" asp-route-pageNumber="@a" asp-route-searchString="@j" class="btn btn-outline-light text-black">
         >>
     </a>
+
+@{
 }
 
 <script>

@@ -4,6 +4,7 @@
 
 using DialectWords.Brokers.Storages;
 using DialectWords.Models.Foundations.words;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DialectWords.Services.Foundations
 {
@@ -18,7 +19,7 @@ namespace DialectWords.Services.Foundations
 
         public async ValueTask<Word> AddWordAsync(Word word)
         {
-            word.id = Guid.NewGuid();
+            ValidateWord(word);
 
             return await this.storageBroker.InsertWordAsync(word);
         }
@@ -38,6 +39,59 @@ namespace DialectWords.Services.Foundations
                 await this.storageBroker.SelectWordByIdAsync(id);
 
             return await this.storageBroker.DeleteWordAsync(mayBeWord);
+        }
+
+        public List<SelectListItem> SelectItems()
+        {
+            var words = this.storageBroker.SelectAllWords();
+
+            return words.Select(g => new SelectListItem
+            {
+                Text = g.Turkum
+            }).ToList();
+        }
+
+        private Word ValidateWord(Word word)
+        {
+            word.id = Guid.NewGuid();
+
+            if (word.AdabiyTil == null)
+                word.AdabiyTil = "";
+
+            if (word.Transliteratsiya == null)
+                word.Transliteratsiya = "";
+
+            if (word.Transkripsiya == null)
+                word.Transkripsiya = "";
+
+            if (word.Turkum == null)
+                word.Turkum = "";
+
+            if (word.ShevaIzohi == null)
+                word.ShevaIzohi = "";
+
+            if (word.Misollar == null)
+                word.Misollar = "";
+
+            if (word.Sinonim == null)
+                word.Sinonim = "";
+
+            if (word.Antonim == null)
+                word.Antonim = "";
+
+            if (word.Omonim == null)
+                word.Omonim = "";
+
+            if (word.OzlashganQatlam == null)
+                word.OzlashganQatlam = "";
+
+            if (word.RusTilida == null)
+                word.RusTilida = "";
+
+            if (word.IngilizTilida == null)
+                word.IngilizTilida = "";
+
+            return word;
         }
     }
 }

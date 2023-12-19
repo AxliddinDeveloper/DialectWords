@@ -3,10 +3,60 @@ html {
   font-size: 14px;
 }
 
+body {
+    min-height: 100vh;
+    margin: 0!important;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    overflow-x: hidden;
+}
+
+.parent {
+    background-color: #e4e4e4;
+    border-radius: 5px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+select {
+    margin-right: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    word-wrap: break-word; /* Add this line to enable word wrapping */
+    max-width: 100px; /* Adjust the max-width as needed */
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    margin: 0 5px;
+ }
+
 .navbar .nav-item :hover {
     background-color: #aff39b;
-    border-radius: 10px;
-    font-size: 15px;
 }
 
 @media (min-width: 768px) {
@@ -24,9 +74,6 @@ html {
   min-height: 100%;
 }
 
-body {
-  margin-bottom: 60px;
-}
 
 .table-container {
     width: 100%;

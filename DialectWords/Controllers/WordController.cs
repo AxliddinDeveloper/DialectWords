@@ -43,7 +43,7 @@ namespace DialectWords.Controllers
             IQueryable<Word> words = this.wordService.RetrieveAllWords();
             IQueryable<Word> foundWords;
 
-            if (!string.IsNullOrEmpty(searchString)|| searchString != "select")
+            if (!string.IsNullOrEmpty(searchString) && searchString != "select")
             {
                 foundWords = words.Where(a =>
                     a.AdabiyTil.ToLower().Contains(searchString.ToLower()) ||

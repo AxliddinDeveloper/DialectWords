@@ -1,0 +1,44 @@
+﻿@model IQueryable<User>
+
+@{
+    ViewData["Title"] = "GetAllUsers";
+}
+
+<h1>GetAllUsers</h1>
+
+<table class="table table-striped table-responsive table-bordered dataTable datatable">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Comment
+            </th>
+            <th>
+                Operator
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                    @item.Email
+            </td>
+            <td>
+                    @item.Comment
+                </td>
+            <td>
+                <a class="btn btn-outline-danger" asp-action="DeleteUser" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

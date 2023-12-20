@@ -63,10 +63,10 @@ nav{
     padding:20px 10px 50px 10px;
 }
 
-.navbar .nav-item :hover {
-    background-color: #aff39b;
-    border-radius:10px;
-}
+    .navbar .nav-item :hover {
+        background-color: #ade8f4;
+        border-radius: 10px;
+    }
 banner {
     padding: 6em 0;
     margin: 3em 0 0 0;

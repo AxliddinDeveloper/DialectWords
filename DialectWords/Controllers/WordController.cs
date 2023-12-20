@@ -178,9 +178,9 @@ namespace DialectWords.Controllers
         [HttpGet]
         public ActionResult<IQueryable<User>> GetAllUsers()
         {
-            this.wordService.RetrieveAllUsers();
+            IQueryable<User> users = this.wordService.RetrieveAllUsers();
 
-            return View();
+            return View(users);
         }
 
         [HttpGet]

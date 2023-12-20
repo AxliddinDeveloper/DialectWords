@@ -2,6 +2,7 @@
 // For Client
 //=============
 
+using DialectWords.Models.Foundations.Users;
 using EFxceptions;
 using Microsoft.EntityFrameworkCore;
 

@@ -3,6 +3,7 @@
 //=============
 
 using DialectWords.Brokers.Storages;
+using DialectWords.Models.Foundations.Users;
 using DialectWords.Models.Foundations.words;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -93,5 +94,25 @@ namespace DialectWords.Services.Foundations
 
             return word;
         }
+
+        public async ValueTask<User> CreateUserAsync(User user) =>
+            await this.storageBroker.InsertUserAsync(user);
+
+        public async ValueTask<User> ModifyUserAsync(User user) =>
+            await this.storageBroker.UpdateUserAsync(user);
+
+        public async ValueTask<User> RemoveUserByIdAsync(Guid id)
+        {
+            User mayBeUser =
+                await this.storageBroker.SelectUserByIdAsync(id);
+
+            return await this.storageBroker.DeleteUserAsync(mayBeUser);
+        }
+
+        public IQueryable<User> RetrieveAllUsers() =>
+             this.storageBroker.SelectAllUsers();
+
+        public async ValueTask<User> RetrieveUserByIdAsync(Guid Id) =>
+            await this.storageBroker.SelectUserByIdAsync(Id);
     }
 }

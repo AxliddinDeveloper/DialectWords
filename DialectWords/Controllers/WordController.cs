@@ -1,8 +1,8 @@
 ﻿using DialectWords.Models;
+using DialectWords.Models.Foundations.Users;
 using DialectWords.Models.Foundations.words;
 using DialectWords.Services.Foundations;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace DialectWords.Controllers
 {
@@ -15,12 +15,6 @@ namespace DialectWords.Controllers
         {
             this.wordService = wordService;
             this.webHostEnvironment = webHostEnvironment;
-        }
-
-        [HttpGet]
-        public IActionResult LoyihaHaqida()
-        {
-            return View("LoyihaHaqida");
         }
 
         [HttpGet]
@@ -178,6 +172,23 @@ namespace DialectWords.Controllers
             }
 
             return View("GetAllWords" ,foundWords);
+        }
+        //===========================================
+
+        [HttpGet]
+        public ActionResult<IQueryable<User>> GetAllUsers()
+        {
+            this.wordService.RetrieveAllUsers();
+
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult DeleteUser(Guid id)
+        {
+            this.wordService.RemoveUserByIdAsync(id);
+
+            return RedirectToAction("GetAllUsers");
         }
     }
 }

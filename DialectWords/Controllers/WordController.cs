@@ -145,34 +145,6 @@ namespace DialectWords.Controllers
             return RedirectToAction("GetAllWords");
         }
 
-        [HttpGet]
-        public IActionResult SearchWord(string searchString)
-        {
-            var applicants = this.wordService.RetrieveAllWords().ToList();
-
-            List<Word> foundWords = null;
-
-            if (!string.IsNullOrEmpty(searchString))
-            {
-                foundWords = applicants.Where(a =>
-                    a.AdabiyTil.ToLower().Contains(searchString.ToLower()) ||
-                    a.Transliteratsiya.ToLower().Contains(searchString.ToLower()) ||
-                    a.Transkripsiya.ToLower().Contains(searchString.ToLower()) ||
-                    a.Sinonim.ToLower().Contains(searchString.ToLower()) ||
-                    a.Omonim.ToLower().Contains(searchString.ToLower()) ||
-                    a.Antonim.ToLower().Contains(searchString.ToLower()) ||
-                    a.Turkum.ToLower().Contains(searchString.ToLower()) ||
-                    a.OzlashganQatlam.ToLower().Contains(searchString.ToLower()) ||
-                    a.RusTilida.ToLower().Contains(searchString.ToLower()) ||
-                    a.IngilizTilida.ToLower().Contains(searchString.ToLower())).ToList();
-            }
-            else
-            {
-                foundWords = applicants;
-            }
-
-            return View("GetAllWords" ,foundWords);
-        }
         //===========================================
 
         [HttpGet]

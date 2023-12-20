@@ -55,14 +55,87 @@ th {
     margin: 0 5px;
  }
 
+nav{
+    text-align:center;
+}
+
+.navbar{
+    padding:20px 10px 50px 10px;
+}
+
 .navbar .nav-item :hover {
     background-color: #aff39b;
+    border-radius:10px;
+}
+banner {
+    padding: 6em 0;
+    margin: 3em 0 0 0;
+}
+#banner {
+    background: url(../images/dialect.jpg);
+    background-position: center center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    text-align: center;
+    position: relative;
+}
+#banner header {
+    background-color: rgba(34, 30, 31, 0.98);
+    display: inline-block;
+    padding: 2.5em 5em;
+    border-radius: 5px;
+    margin:100px;
+}
+
+#banner header h2 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 2.5em;
+    margin: 0 0 0.65em 0;
+}
+
+#banner header p {
+    color: #d52349;
+    padding: 0;
+    font-style: normal;
+    margin: 0;
+    font-size: 1.5em;
+}
+#intro .button {
+    min-width: 12em;
+}
+
+ul .actions {
+    list-style: none;
+    padding-left: 0;
+}
+
+input[type=button].large, input[type=submit].large, input[type=reset].large, button.large, .button.large {
+    font-size: 1.5em;
+    padding: 0.75em 1.5em 0.75em 1.5em;
+}
+
+input[type=submit], input[type=reset], button, .button {
+    -webkit-appearance: none;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    border: 0;
+    border-radius: 5px;
+    background: #d52349;
+    color: #fff !important;
+    font-weight: 700;
+    outline: 0;
+    font-size: 1.1em;
+    padding: 0.65em 1.5em 0.65em 1.5em;
+    text-align: center;
+    transition: background-color .25s ease-in-out;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
@@ -78,4 +151,35 @@ html {
 .table-container {
     width: 100%;
     overflow-x: auto;
+}
+
+footer{
+    background-color:#323030;
+    padding:50px;
+
+}
+
+footer li {
+    list-style-type: none;
+}
+
+footer h2{
+    color:white;
+}
+
+.first {
+    text-align: center;
+    padding: 20px;
+}
+
+.middle {
+    text-align: center;
+    padding: 20px;
+    box-shadow:0 -32px 0 0 #fff, 0 32px 0 0 #fff, 0 0 32px 0 rgba(0, 0, 0, 0.3);
+
+}
+
+.last{
+    text-align:center;
+    padding:20px;
 }

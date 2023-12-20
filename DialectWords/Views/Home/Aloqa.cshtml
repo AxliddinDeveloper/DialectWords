@@ -1,0 +1,48 @@
+﻿    <div id="page-wrapper">
+
+        <!-- Main -->
+        <section id="main">
+            <div class="container">
+                <!-- Content -->
+                <!-- Content -->
+                <article id="contact" class="box post">
+                    <header>
+                        <h2>Bog'lanish</h2>
+                        <p>Muallif bilan bog'lanish</p>
+                    </header>
+
+                    <div class="row">
+                        <div class="col-md-6 d-none d-md-block d-lg-block">
+                            <img src="/images/envelopes.jpg" style="width: 100%; height: auto" alt="" />
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <form class="border border-light pr-3">
+
+                                <input type="text" v-model="name" class="form-control mb-4" placeholder="Ismingiz">
+                                <p v-if="inValid.name" class="help-block text-danger">Iltimos, ismingizni yozing</p>
+
+                                <input type="email" v-model="email" class="form-control mb-4" placeholder="E-mail manzilingiz">
+                                <p v-if="inValid.email" class="help-block text-danger">Iltimos, Email manzilingizni yozing</p>
+
+                                <textarea class="form-control rounded-0" v-model="message" rows="3" placeholder="Xabar matni"></textarea>
+                                <p v-if="inValid.message" class="help-block text-danger">Ilimos, xabar matnini yozing</p>
+
+                                <div class="form-row mt-4">
+                                    <div class="col-md-4 col-sm-6">
+                                        <img src="/images/577a5f35cc008.png">
+                                    </div>
+                                    <div class="col-md-5 col-sm-6">
+                                        <input type="text" v-model="aa577a5f35cc008" class="form-control">
+                                    </div>
+                                    <p v-if="inValid.aa577a5f35cc008" class="help-block text-danger">Ilimos, rasmdagi bulgilarni kriting</p>
+                                </div>
+                                <div :class="{'text-danger': resultMessage.error, 'text-success': !resultMessage.error}" id="success" v-html="resultMessage.message"></div>
+                                <button class="button btn-block mt-4" type="submit">Yuborish</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </article>
+            </div>
+        </section>
+    </div>

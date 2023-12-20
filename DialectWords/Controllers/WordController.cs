@@ -119,7 +119,8 @@ namespace DialectWords.Controllers
                 TotalPages = totalPages,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
-                SearchString = searchString
+                SearchString = searchString,
+                Filter = filter
             };
 
             return View(wordsViewModel);

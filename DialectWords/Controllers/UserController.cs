@@ -1,17 +1,16 @@
-﻿using DialectWords.Models;
-using DialectWords.Models.Foundations.words;
+﻿using DialectWords.Models.Foundations.words;
+using DialectWords.Models;
 using DialectWords.Services.Foundations;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace DialectWords.Controllers
 {
-    public class WordController : Controller
+    public class UserController : Controller
     {
         private readonly IWordService wordService;
         private readonly IWebHostEnvironment webHostEnvironment;
 
-        public WordController(IWordService wordService, IWebHostEnvironment webHostEnvironment)
+        public UserController(IWordService wordService, IWebHostEnvironment webHostEnvironment)
         {
             this.wordService = wordService;
             this.webHostEnvironment = webHostEnvironment;
@@ -38,7 +37,7 @@ namespace DialectWords.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IQueryable<Word>> GetAllWords(int pageSize = 10, int pageNumber = 1, string searchString = "", string filter = "")
+        public ActionResult<IQueryable<Word>> GetAllWordsForUser(int pageSize = 10, int pageNumber = 1, string searchString = "", string filter = "")
         {
             IQueryable<Word> words = this.wordService.RetrieveAllWords();
             IQueryable<Word> foundWords;
@@ -101,7 +100,7 @@ namespace DialectWords.Controllers
             {
                 foundWords = words;
             }
-            
+
 
             int totalItems = foundWords.Count();
             int totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
@@ -176,7 +175,7 @@ namespace DialectWords.Controllers
                 foundWords = applicants;
             }
 
-            return View("GetAllWords" ,foundWords);
+            return View("GetAllWords", foundWords);
         }
     }
 }

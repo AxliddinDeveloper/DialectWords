@@ -9,5 +9,6 @@ namespace DialectWords.Models
         public int TotalPages { get; set; }
         public int PageSize { get; set; }
         public string SearchString { get; set; }
+        public string Filter {  get; set; }
     }
 }

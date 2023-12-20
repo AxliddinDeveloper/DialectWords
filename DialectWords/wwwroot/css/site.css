@@ -78,11 +78,12 @@ banner {
     background-repeat: no-repeat;
     text-align: center;
     position: relative;
+    margin-bottom:50px;
 }
 #banner header {
     background-color: rgba(34, 30, 31, 0.98);
     display: inline-block;
-    padding: 2.5em 5em;
+    padding: 2em 4em;
     border-radius: 5px;
     margin:100px;
 }
@@ -90,7 +91,7 @@ banner {
 #banner header h2 {
     color: #fff;
     font-weight: 700;
-    font-size: 2.5em;
+    font-size: 2em;
     margin: 0 0 0.65em 0;
 }
 
@@ -99,15 +100,25 @@ banner {
     padding: 0;
     font-style: normal;
     margin: 0;
-    font-size: 1.5em;
+    font-size: 1em;
 }
+
 #intro .button {
     min-width: 12em;
 }
 
-ul .actions {
-    list-style: none;
+.actions {
     padding-left: 0;
+    width:auto;
+    height:auto;
+}
+
+.actions li{
+    list-style-type: none;
+}
+
+.actions li a {
+    margin-left:40%;
 }
 
 input[type=button].large, input[type=submit].large, input[type=reset].large, button.large, .button.large {

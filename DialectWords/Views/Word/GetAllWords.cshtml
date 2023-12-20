@@ -11,67 +11,67 @@
     if (Model.PageNumber > 1)
         b -= 1;
 }
-
-<div class="m-5 p-3 parent">
-    <div class="navbar-collapse collapse d-sm-inline-flex">
-        <a class="btn btn-outline-light text-primary" asp-area="" asp-controller="Word" asp-action="PostWord">Add Word</a>
-    </div>
-<div class="d-flex justify-content-between">
-    <form method="get" asp-action="GetAllWords" class="form-group p-2">
-        <label>Page Size:</label>
-        <select asp-for="PageSize" onchange="this.form.submit()" class="form-select">
-            <option >select</option>
-            <option value=10>10</option>
-            <option value=50>50</option>
-            <option value=100>100</option>
-        </select>
-        <label>Turkumlar</label>
-        <select asp-for="Filter" asp-items="@ViewBag.Turkumlar" onchange="this.form.submit()" class="form-select">
-            <option value="">select</option>
-        </select>
-            <input type="hidden" id="searchString" name="searchString" value="@j" class="form-control" />
-    </form>
-
-    <form method="get" asp-action="GetAllWords" class="form-group p-2">
-        <div class="form-group">
-            <label>Search:</label>
-            <input type="text" id="searchString" name="searchString" class="form-control" placeholder="Search..." oninput="delayedSubmit(this)" />
+<div class="container-md">
+    <div class="m-5 p-3 parent">
+        <div class="navbar-collapse collapse d-sm-inline-flex">
+            <a class="btn btn-outline-light text-primary" asp-area="" asp-controller="Word" asp-action="PostWord">Add Word</a>
         </div>
-        <div>
-                <input type="hidden" id="pageSize" name="pageSize" value="@g" class="form-control" />
-                <input type="hidden" id="filter" name="filter" value="@o" class="form-control" />
+        <div class="d-flex justify-content-between">
+            <form method="get" asp-action="GetAllWords" class="form-group p-2">
+                <label>Page Size:</label>
+                <select asp-for="PageSize" onchange="this.form.submit()" class="form-select">
+                    <option>select</option>
+                    <option value=10>10</option>
+                    <option value=50>50</option>
+                    <option value=100>100</option>
+                </select>
+                <label>Turkumlar</label>
+                <select asp-for="Filter" asp-items="@ViewBag.Turkumlar" onchange="this.form.submit()" class="form-select">
+                    <option value="">select</option>
+                </select>
+                <input type="hidden" id="searchString" name="searchString" value="@j" class="form-control" />
+            </form>
+
+            <form method="get" asp-action="GetAllWords" class="form-group p-2">
+                <div class="form-group">
+                    <label>Search:</label>
+                    <input type="text" id="searchString" name="searchString" class="form-control" placeholder="Search..." oninput="delayedSubmit(this)" />
+                </div>
+                <div>
+                    <input type="hidden" id="pageSize" name="pageSize" value="@g" class="form-control" />
+                    <input type="hidden" id="filter" name="filter" value="@o" class="form-control" />
+                </div>
+            </form>
+
         </div>
-    </form>
-
-</div>
 
 
 
-<div class="table-container mb-5">
-    <table class="table table-striped table-responsive table-bordered dataTable datatable">
-        <thead>
-            <tr>
-                    <th>Operators</th>
-                <th scope="col">#</th>
-                <th>Adabiy Til</th>
-                <th>Transliteratsiya</th>
-                <th>Transkripsiya</th>
-                <th>Turkum</th>
-                <th>Sheva Izohi</th>
-                <th>Misollar</th>
-                <th>Sinonim</th>
-                <th>Omonim</th>
-                <th>Antonim</th>
-                <th>Ozlashgan Qatlam</th>
-                <th>Rus Tilida</th>
-                <th>Ingiliz Tilida</th>
-            </tr>
-        </thead>
-        <tbody>
-            @{
-                int i = 1;
-                foreach (var word in Model.Words)
-                {
+        <div class="table-container mb-5">
+            <table class="table table-striped table-responsive table-bordered dataTable datatable">
+                <thead>
+                    <tr>
+                        <th>Operators</th>
+                        <th scope="col">#</th>
+                        <th>Adabiy Til</th>
+                        <th>Transliteratsiya</th>
+                        <th>Transkripsiya</th>
+                        <th>Turkum</th>
+                        <th>Sheva Izohi</th>
+                        <th>Misollar</th>
+                        <th>Sinonim</th>
+                        <th>Omonim</th>
+                        <th>Antonim</th>
+                        <th>Ozlashgan Qatlam</th>
+                        <th>Rus Tilida</th>
+                        <th>Ingiliz Tilida</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                    int i = 1;
+                    foreach (var word in Model.Words)
+                    {
                     <tr>
                         <td>
                             <a asp-controller="Word" asp-action="EditWord" asp-route-id="@word.id" class="btn btn-outline-light text-dark h-25">
@@ -96,36 +96,34 @@
                         <td>@word.IngilizTilida</td>
                     </tr>
                     i += 1;
-                }
-            }
-        </tbody>
-    </table>
-</div>
+                    }
+                    }
+                </tbody>
+            </table>
+        </div>
 
-    <a asp-action="GetAllWords" asp-route-pageSize="@g" asp-route-pageNumber="@b" asp-route-searchString="@j" class="btn btn-outline-light text-black">
-        &lt;&lt;
-    </a>
-    <section class="form-check-inline text-center m-auto">@Model.PageNumber/@Model.TotalPages</section>
-    <a asp-action="GetAllWords" asp-route-pageSize="@g" asp-route-pageNumber="@a" asp-route-searchString="@j" class="btn btn-outline-light text-black">
-        >>
-    </a>
+        <a asp-action="GetAllWords" asp-route-pageSize="@g" asp-route-pageNumber="@b" asp-route-searchString="@j" class="btn btn-outline-light text-black">
+            &lt;&lt;
+        </a>
+        <section class="form-check-inline text-center m-auto">@Model.PageNumber/@Model.TotalPages</section>
+        <a asp-action="GetAllWords" asp-route-pageSize="@g" asp-route-pageNumber="@a" asp-route-searchString="@j" class="btn btn-outline-light text-black">
+            >>
+        </a>
+    </div>
 
-@{
-}
+    <script>
+        var delayTimer;
 
-<script>
-    var delayTimer;
+        function delayedSubmit(input) {
+            clearTimeout(delayTimer);
+            delayTimer = setTimeout(function () {
+                input.form.submit();
+            }, 1000);
+        }
+    </script>
 
-    function delayedSubmit(input) {
-        clearTimeout(delayTimer);
-        delayTimer = setTimeout(function () {
-            input.form.submit();
-        }, 1000);
-    }
-</script>
-
-<script>
-    document.getElementById('pageSizeSelect').addEventListener('change', function () {
-        this.form.submit();
-    });
-</script>
+    <script>
+        document.getElementById('pageSizeSelect').addEventListener('change', function () {
+            this.form.submit();
+        });
+    </script>

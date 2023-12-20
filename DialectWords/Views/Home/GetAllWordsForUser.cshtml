@@ -23,7 +23,7 @@
                     <option value=100>100</option>
                 </select>
                 <label>Turkumlar</label>
-                <select asp-items="@ViewBag.Turkumlar" onchange="this.form.submit()" class="form-select">
+                <select asp-for="Filter" asp-items="@ViewBag.Turkumlar" onchange="this.form.submit()" class="form-select">
                     <option value=null>select</option>
                 </select>
                 <input type="hidden" id="searchString" name="searchString" value="@j" class="form-control" />

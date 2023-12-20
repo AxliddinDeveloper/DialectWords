@@ -47,11 +47,16 @@ namespace DialectWords.Services.Foundations
         public List<SelectListItem> SelectItems()
         {
             var words = this.storageBroker.SelectAllWords();
+            var itemsString = new List<string>();
 
-            return words.Select(g => new SelectListItem
+            foreach (Word word in words)
             {
-                Text = g.Turkum
-            }).ToList();
+
+                if (!itemsString.Contains(word.Turkum) && !string.IsNullOrEmpty(word.Turkum))
+                    itemsString.Add(word.Turkum);
+            }
+
+            return itemsString.Select(i => new SelectListItem { Text = i}).ToList();
         }
 
         private Word ValidateWord(Word word)

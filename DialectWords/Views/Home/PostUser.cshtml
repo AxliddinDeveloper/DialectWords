@@ -1,6 +1,6 @@
 ﻿@model UserViewModel
 @{
-
+    string message = ViewBag.Message;
 }
 <div id="page-wrapper">
 
@@ -31,6 +31,7 @@
                                 </div>
                                 <div class="col-md-5 col-sm-6">
                                     <input asp-for="Verify" type="text" v-model="aa577a5f35cc008" class="form-control">
+                                    <p class="text-danger">@message</p>
                                 </div>
                             </div>
                             <button  class="button btn-block mt-4" type="submit">Yuborish</button>

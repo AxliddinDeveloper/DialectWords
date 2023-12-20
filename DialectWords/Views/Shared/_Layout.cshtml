@@ -12,7 +12,7 @@
     <header class="d-flex align-items-center">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid w-100">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DialectWords</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Dialect Words</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -20,21 +20,13 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex">
                     <ul class="navbar-nav flex-grow-1 justify-content-end">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Word" asp-action="GetAllWords">So'zlar jadvali</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="GetAllWordsForUser">So'zlar jadvali</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Transkripsiya</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="LoyihaHaqida">Loyiha Haqida</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Word" asp-action="LoyihaHaqida">Loyiha Haqida</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Aloqa">Aloqa</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="GetAllWordsForUser">So'zlar Jadavli</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="PostUser">Aloqa</a>
                         </li>
                     </ul>
                 </div>

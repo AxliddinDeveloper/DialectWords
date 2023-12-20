@@ -27,6 +27,5 @@ namespace DialectWords.Brokers.Storages
 
         public async ValueTask<Word> DeleteWordAsync(Word word) =>
             await DeleteAsync<Word>(word);
-
     }
 }

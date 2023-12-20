@@ -3,8 +3,10 @@
 //=============
 
 using DialectWords.Brokers.Storages;
+using DialectWords.Models;
 using DialectWords.Models.Foundations.Users;
 using DialectWords.Models.Foundations.words;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DialectWords.Services.Foundations
@@ -95,8 +97,25 @@ namespace DialectWords.Services.Foundations
             return word;
         }
 
-        public async ValueTask<User> CreateUserAsync(User user) =>
+        public async ValueTask<string> CreateUserAsync(UserViewModel userViewModel)
+        {
+            if (userViewModel.Verify != "xexezev")
+            {
+                return "Tasdiqlash kodi xato!";
+            }
+
+            User user = new User()
+            {
+                Id = Guid.NewGuid(),
+                Name = userViewModel.Name,
+                Email = userViewModel.Email,
+                Comment = userViewModel.Comment,
+            };
+
             await this.storageBroker.InsertUserAsync(user);
+
+            return "Xabaringiz yuborildi!";
+        }
 
         public async ValueTask<User> ModifyUserAsync(User user) =>
             await this.storageBroker.UpdateUserAsync(user);

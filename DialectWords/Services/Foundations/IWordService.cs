@@ -2,6 +2,7 @@
 // For Client
 //=============
 
+using DialectWords.Models;
 using DialectWords.Models.Foundations.Users;
 using DialectWords.Models.Foundations.words;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -17,7 +18,7 @@ namespace DialectWords.Services.Foundations
         ValueTask<Word> RemoveWordByIdAsync(Guid id);
         List<SelectListItem> SelectItems();
         //=================================
-        ValueTask<User> CreateUserAsync(User user);
+        ValueTask<string> CreateUserAsync(UserViewModel userViewModel);
         IQueryable<User> RetrieveAllUsers();
         ValueTask<User> RetrieveUserByIdAsync(Guid Id);
         ValueTask<User> ModifyUserAsync(User user);

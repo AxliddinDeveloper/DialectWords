@@ -130,9 +130,10 @@ namespace DialectWords.Controllers
         }
 
         [HttpPost]
-        public async ValueTask<ActionResult<User>> PostUser(User user)
+        public async ValueTask<IActionResult> PostUser(UserViewModel userViewModel)
         {
-            User storeuser = await this.wordService.CreateUserAsync(user);
+            string result = await this.wordService.CreateUserAsync(userViewModel);
+            ViewBag.Message = result;
 
             return View("PostUser");
         }

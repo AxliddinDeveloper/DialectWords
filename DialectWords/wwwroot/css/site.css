@@ -5,11 +5,11 @@ html {
 
 body {
     min-height: 100vh;
+    width: 100vw;
     margin: 0!important;
     padding: 0;
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    margin: 20px;
     overflow-x: hidden;
 }
 
@@ -69,31 +69,26 @@ nav{
         background-color: #ade8f4;
         border-radius: 10px;
     }
-
-.navbar-collapse {
-    display: flex;
-    justify-content: center;
-}
-
 banner {
     padding: 6em 0;
     margin: 3em 0 0 0;
 }
 #banner {
+    height: 400px;
     background: url(../images/dialect.jpg);
-    background-position: center center;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     text-align: center;
-    position: relative;
     margin-bottom:50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 #banner header {
     background-color: rgba(34, 30, 31, 0.98);
     display: inline-block;
     padding: 2em 4em;
     border-radius: 5px;
-    margin:100px;
 }
 
 #banner header h2 {
@@ -115,19 +110,38 @@ banner {
     min-width: 12em;
 }
 
+.navbar-brand{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 790px) {
+    #banner header{
+        padding: 1rem inherit;
+    }
+    .cards {
+        display: flex;
+        flex-direction: column;
+    }
+     .cards > .col-4 {
+         width: 100%!important;
+     }
+}
+
+
 .actions {
     padding-left: 0;
-    width:auto;
-    height:auto;
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .actions li{
     list-style-type: none;
 }
 
-.actions li a {
-    margin-left:40%;
-}
 
 input[type=button].large, input[type=submit].large, input[type=reset].large, button.large, .button.large {
     font-size: 1.5em;
@@ -135,7 +149,6 @@ input[type=button].large, input[type=submit].large, input[type=reset].large, but
 }
 
 input[type=submit], input[type=reset], button, .button {
-    -webkit-appearance: none;
     display: inline-block;
     text-decoration: none;
     cursor: pointer;
@@ -151,11 +164,7 @@ input[type=submit], input[type=reset], button, .button {
     transition: background-color .25s ease-in-out;
 }
 
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
-}
+
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;

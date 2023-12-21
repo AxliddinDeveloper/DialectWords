@@ -36,8 +36,8 @@ th, td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
-    word-wrap: break-word; /* Add this line to enable word wrapping */
-    max-width: 100px; /* Adjust the max-width as needed */
+    word-wrap: break-word; 
+    max-width: 100px; 
 }
 
 th {
@@ -59,14 +59,22 @@ nav{
     text-align:center;
 }
 
-.navbar{
-    padding:20px 10px 50px 10px;
+.navbar {
+    padding: 20px 10px 50px 10px;
+    justify-content: center;
+    display: flex;
 }
 
     .navbar .nav-item :hover {
         background-color: #ade8f4;
         border-radius: 10px;
     }
+
+.navbar-collapse {
+    display: flex;
+    justify-content: center;
+}
+
 banner {
     padding: 6em 0;
     margin: 3em 0 0 0;
@@ -204,3 +212,31 @@ element.style {
     padding-bottom: 5px;
     padding-left: 5px;
 }
+
+#main {
+    padding: 50px 0;
+}
+
+.box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+    .box header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .box p {
+        line-height: 1.6;
+    }
+
+/* Container styles */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+

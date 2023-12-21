@@ -52,8 +52,8 @@ namespace DialectWords.Services.Foundations
             foreach (Word word in words)
             {
 
-                if (!itemsString.Contains(word.Turkum) && !string.IsNullOrEmpty(word.Turkum))
-                    itemsString.Add(word.Turkum);
+                if (!itemsString.Contains(word.Turkum.ToLower()) && !string.IsNullOrEmpty(word.Turkum))
+                    itemsString.Add(word.Turkum.ToLower());
             }
 
             return itemsString.Select(i => new SelectListItem { Text = i}).ToList();

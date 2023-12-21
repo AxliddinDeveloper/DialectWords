@@ -2,44 +2,46 @@
 @{
     string message = ViewBag.Message;
 }
-<div id="page-wrapper">
+<div class="backg">
+    <div id="page-wrapper">
 
-    <!-- Main -->
-    <section id="main">
-        <div class="container">
-            <!-- Content -->
-            <!-- Content -->
-            <article id="contact" class="box post">
-                <header>
-                    <h2>Bog'lanish</h2>
-                    <p>Muallif bilan bog'lanish</p>
-                </header>
+        <!-- Main -->
+        <section id="main">
+            <div class="container">
+                <!-- Content -->
+                <!-- Content -->
+                <article id="contact" class="box post">
+                    <header>
+                        <h2>Bog'lanish</h2>
+                        <p>Muallif bilan bog'lanish</p>
+                    </header>
 
-                <div class="row">
-                    <div class="col-md-6 d-none d-md-block d-lg-block">
-                        <img src="~/images/image (1).jpg" alt style="width: 100%;height: auto;" />
-                    </div>
-                    <div class="col-md-6 col-sm-12">
-                        <form method="post" asp-action="PostUser" class="border border-light pr-3">
+                    <div class="row">
+                        <div class="col-md-6 d-none d-md-block d-lg-block">
+                            <img src="~/images/image (1).jpg" alt style="width: 100%;height: auto;" />
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <form method="post" asp-action="PostUser" class="border border-light pr-3">
 
-                            <input asp-for="Name" type="text" v-model="name" class="form-control mb-4" placeholder="Ismingiz">
-                            <input asp-for="Email" type="email" v-model="email" class="form-control mb-4" placeholder="E-mail manzilingiz">
-                            <textarea asp-for="Comment" class="form-control rounded-0" v-model="message" rows="3" placeholder="Xabar matni"></textarea>
-                            <div class="form-row mt-4">
-                                <div class="col-md-4 col-sm-6">
-                                    <img src="~/images/577a5f35cc008.png">
+                                <input asp-for="Name" type="text" v-model="name" class="form-control mb-4" placeholder="Ismingiz">
+                                <input asp-for="Email" type="email" v-model="email" class="form-control mb-4" placeholder="E-mail manzilingiz">
+                                <textarea asp-for="Comment" class="form-control rounded-0" v-model="message" rows="3" placeholder="Xabar matni"></textarea>
+                                <div class="form-row mt-4">
+                                    <div class="col-md-4 col-sm-6">
+                                        <img src="~/images/577a5f35cc008.png">
+                                    </div>
+                                    <div class="col-md-5 col-sm-6">
+                                        <input asp-for="Verify" type="text" v-model="aa577a5f35cc008" class="form-control">
+                                        <p class="text-danger">@message</p>
+                                    </div>
                                 </div>
-                                <div class="col-md-5 col-sm-6">
-                                    <input asp-for="Verify" type="text" v-model="aa577a5f35cc008" class="form-control">
-                                    <p class="text-danger">@message</p>
-                                </div>
-                            </div>
-                            <button  class="button btn-block mt-4" type="submit">Yuborish</button>
-                        </form>
+                                <button class="button btn-block mt-4" type="submit">Yuborish</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
 
-            </article>
-        </div>
-    </section>
+                </article>
+            </div>
+        </section>
+    </div>
 </div>

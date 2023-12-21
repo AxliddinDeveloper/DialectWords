@@ -10,18 +10,18 @@
     <link rel="shortcut icon" type="image/x-icon" href="~/images/images.png" />
 </head>
 <body>
-    <header class=" container d-flex align-items-center">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary w-100 d-flex align-items-center justify-content-center">
-            <div class="container-fluid w-100 mx-auto justify-content-center">
-                <a class="navbar-brand text-black" asp-area="" asp-controller="Home" asp-action="Index">Bosh Sahifa</a>
+    <header class="d-flex align-items-center">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid w-100">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Dialect Words</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false">
                     <span class="navbar-toggler-icon text-white navbarToggler mb-2">
                         <img src="https://assets.stickpng.com/images/588a64e7d06f6719692a2d11.png" height="35px" />
                     </span>
                 </button>
-                <div class="navbar-collapse collapse navbarItem">
-                    <ul class="navbar-nav">
+                <div class="navbar-collapse collapse d-sm-inline-flex">
+                    <ul class="navbar-nav flex-grow-1 justify-content-end">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="GetAllWordsForUser">So'zlar jadvali</a>
                         </li>

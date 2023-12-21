@@ -65,15 +65,10 @@ nav{
     display: flex;
 }
 
-.navbar .nav-item :hover {
-    background-color: #ade8f4;
-}
-
-.navbarItem{
-    flex-grow: 0!important;
-}
-
-
+    .navbar .nav-item :hover {
+        background-color: #ade8f4;
+        border-radius: 10px;
+    }
 banner {
     padding: 6em 0;
     margin: 3em 0 0 0;
@@ -132,7 +127,6 @@ banner {
          width: 100%!important;
      }
 }
-
 
 .actions {
     padding-left: 0;

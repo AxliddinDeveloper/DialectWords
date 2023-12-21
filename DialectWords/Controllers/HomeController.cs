@@ -109,6 +109,7 @@ namespace DialectWords.Controllers
                 wordsViewModel.PageNumber = pageNumber;
                 wordsViewModel.PageSize = pageSize;
                 wordsViewModel.SearchString = searchString;
+                wordsViewModel.Filter = filter;
             }
             else
             {

@@ -62,7 +62,7 @@ namespace DialectWords.Brokers.Storages
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string connectionString = configuration.GetConnectionString(name: "DefaultConnection");
+            string connectionString = configuration.GetConnectionString(name: "Data Source = ..\\Sheenam.db");
             optionsBuilder.UseSqlite(connectionString);
         }
 

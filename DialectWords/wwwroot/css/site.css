@@ -137,9 +137,15 @@ banner {
     justify-content: center;
 }
 
+
 .actions li{
     list-style-type: none;
 }
+
+    .actions li :hover {
+        background: #ec6d88;
+        box-shadow: 2px 2px 4px rgba(255, 0, 0, 0.5);
+    }
 
 
 input[type=button].large, input[type=submit].large, input[type=reset].large, button.large, .button.large {

@@ -1,112 +1,231 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="~/css/main.css" />
+<noscript><link rel="stylesheet" href="~/css/noscript.css" /></noscript>
+    <!-- Wrapper -->
+    <div id="wrapper" class="fade-in">
 
-<section id="banner">
-    <header>
-        <h2>Onlayn shevalar bazasi</h2>
-        <p>(Saralash va qidirish imkoniyatlari bilan)</p>
-    </header>
-</section>
+        <!-- Intro -->
+        <div id="intro">
+            <h1>O'zbek tili yordamchi so'zlar bazasiga xush kelibsiz!</h1>
+            <p>Saralash va qidirish imkoniyatlari bilan</p>
+            <ul class="actions">
+                <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+            </ul>
+        </div>
 
-<!-- Intro -->
-<section id="intro" class="container">
-    <div class="row cards">
-        <div class="col-4 col-12-medium">
-            <section class="first">
-                <header>
-                    <h2>Turkum</h2>
-                </header>
-                <p>Sheva so'zlarining so'z turkumlari <br />guruhlari bo'yicha statistikasi.</p>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Mustaqil
-                        <span class="badge text-dark">
-                            492
-                        </span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Yordamchi
-                        <span class="badge text-dark">
-                            3
-                        </span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Alohida
-                        <span class="badge text-dark">
-                            7
-                        </span>
-                    </li>
-                </ul>
-            </section>
-        </div>
-        <div class="col-4 col-12-medium">
-            <section class="middle">
-                <header>
-                    <h2>Sheva so'zi</h2>
-                </header>
-                <p>Boysun shevasidan bazaga qo'shilgan yangi so'zlar.</p>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Jaloq
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Jalpaymoq
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Jalpoq
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Jalribash
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Jamov
-                    </li>
-                </ul>
-            </section>
-        </div>
-        <div class="col-4 col-12-medium">
-            <section class="last">
-                <header>
-                    <h2>Sheva etimologiyasi</h2>
-                </header>
-                <p>Eng ko'p sozlar o'zlashgan <br />5 ta manba til.</p>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Forscha
-                        <span class="badge text-dark">
-                            62
-                        </span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Arabcha
-                        <span class="badge text-dark">
-                            16
-                        </span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        mo’g’ul
-                        <span class="badge text-dark">
-                            2
-                        </span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Ruscha
-                        <span class="badge text-dark">
-                            0
-                        </span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Inglizcha
-                        <span class="badge text-dark">
-                            0
-                        </span>
-                    </li>
-                </ul>
-            </section>
-        </div>
-    </div>
-        <ul class="actions">
-            <li><a asp-action="GetAllWordsForUser" class="button large">Jadvalga o'tish</a></li>
+        <!-- Header -->
+        <header id="header">
+        <a asp-area="" asp-controller="Home" asp-action="Index" class="logo">Yordamchi so'zlar</a>
+        </header>
+    <!-- Nav -->
+    <nav id="nav">
+        <ul class="links">
+            <li>
+                <a class="active" asp-area="" asp-controller="Home" asp-action="Index">Bosh sahifa</a>
+            </li>
+            <li>
+                <a  asp-area="" asp-controller="Home" asp-action="GetAllWordsForUser">So'zlar jadvali</a>
+            </li>
+            <li>
+                <a  asp-area="" asp-controller="Home" asp-action="LoyihaHaqida">Loyiha haqida</a>
+            </li>
+            <li>
+                <a  asp-area="" asp-controller="Home" asp-action="PostUser">Aloqa</a>
+            </li>
         </ul>
-</section>
+    </nav>
+
+    <section id="main">
+        <div class="container-md">
+            <div class="p-3 bg-white">
+            <section id="banner">
+                <header>
+                    <h2>Onlayn shevalar bazasi</h2>
+                    <p style="padding-left: 60px">(Saralash va qidirish imkoniyatlari bilan)</p>
+                </header>
+            </section>
+
+            <!-- Intro -->
+            <section id="introo" class="container">
+                <div class="row cards">
+                    <div class="col-4 col-12-medium">
+                        <section class="first">
+                            <header>
+                                <h2>Turkum</h2>
+                            </header>
+                            <p>Sheva so'zlarining so'z turkumlari <br />guruhlari bo'yicha statistikasi.</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Mustaqil
+                                    <span class="badge text-dark">
+                                        492
+                                    </span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Yordamchi
+                                    <span class="badge text-dark">
+                                        3
+                                    </span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Alohida
+                                    <span class="badge text-dark">
+                                        7
+                                    </span>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="col-4 col-12-medium">
+                        <section class="middle">
+                            <header>
+                                <h2>Sheva so'zi</h2>
+                            </header>
+                            <p>Boysun shevasidan bazaga qo'shilgan yangi so'zlar.</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Jaloq
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Jalpaymoq
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Jalpoq
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Jalribash
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Jamov
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="col-4 col-12-medium">
+                        <section class="last">
+                            <header>
+                                <h2>Sheva etimologiyasi</h2>
+                            </header>
+                            <p>Eng ko'p sozlar o'zlashgan <br />5 ta manba til.</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Forscha
+                                    <span class="badge text-dark">
+                                        62
+                                    </span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Arabcha
+                                    <span class="badge text-dark">
+                                        16
+                                    </span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    mo’g’ul
+                                    <span class="badge text-dark">
+                                        2
+                                    </span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Ruscha
+                                    <span class="badge text-dark">
+                                        0
+                                    </span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Inglizcha
+                                    <span class="badge text-dark">
+                                        0
+                                    </span>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+                    <ul class="actions">
+                        <li><a asp-action="GetAllWordsForUser" class="button large">Jadvalga o'tish</a></li>
+                    </ul>
+            </section>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-top p-0" style="margin: 20px 160px; background-color: #323030; color: #323030;">
+        <div class="containerr" style="background-color: #323030;">
+            <section id="footer">
+                <div class="containerr" style="background-color: #323030;">
+                    <div class="row" style="background-color: #323030;">
+                        <div class="col-4 col-6-medium col-12-small">
+                            <section>
+                                <header>
+                                    <h2>Foydali havolalar</h2>
+                                </header>
+                                <ul class="divided">
+                                    <li class="nav-item"><a class="nav-link text-white" target="_blank" href="https://edu.uz/uz">O`zbekiston Respublikasi Oliy va o`rta maxsus ta`lim vazirligi</a></li>
+                                    <li class="nav-item"><a class="nav-link text-white" target="_blank" href="http://tersu.uz/">Termiz Davlat Universiteti</a></li>
+                                    <li class="nav-item"><a class="nav-link text-white" target="_blank" href="http://uzswlu.uz/">O`zbekiston Davlat Jahon Tillari Universiteti</a></li>
+                                    <li class="nav-item"><a class="nav-link text-white" target="_blank" href="https://navoiy-uni.uz/">Toshkent davlat o‘zbek tili va adabiyoti universiteti</a></li>
+                                    <li class="nav-item"><a class="nav-link text-white" target="_blank" href="https://tsuos.uz/ru/">Toshkent davlat sharqshunoslik universiteti</a></li>
+
+                                </ul>
+                            </section>
+                        </div>
+                        <div class="col-4 col-6-medium col-12-small">
+                            <section>
+                                <header>
+                                    <h2>Foydali havolalar</h2>
+                                </header>
+                                <ul class="divided">
+                                    <li class="nav-item"><a class="nav-link text-white" target="_blank" href="https://idioms.uz">O'zbek Milliy korpusida idiomalar bazasi</a></li>
+                                    <li class="nav-item"><a class="nav-link text-white" target="_blank" href="https://saviya.uz/">Saviya.uz - Adabiyot. Hayot. Kamolot</a></li>
+                                    <li class="nav-item"><a class="nav-link text-white" target="_blank" href="http://ziyonet.uz/">ZiyoNET ta'lim portali</a></li>
+                                    <li class="nav-item"><a class="nav-link text-white" target="_blank" href="https://fledu.uz/">O‘zbekistonda xorijiy tillar onlayn jurnali</a></li>
+                                    <li class="nav-item"><a class="nav-link text-white" target="_blank" href="https://ulugov.uz">TAS-IX saytlari ro'yxati</a></li>
+                                </ul>
+                            </section>
+                        </div>
+                        <div class="col-4 col-12-medium">
+                            <section>
+                                <header>
+                                    <h2>Muallif maqolalari</h2>
+                                </header>
+                                <ul class="divided">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" target="_blank" href="https://scholar.google.com/citations?user=AKN8_B8AAAAJ&hl=ru#d=gs_md_cita-d&u=%2Fcitations%3Fview_op%3Dview_citation%26hl%3Dru%26user%3DAKN8_B8AAAAJ%26citation_for_view%3DAKN8_B8AAAAJ%3AhqOjcs7Dif8C%26tzom%3D-300">
+                                            Peech Genres Of Texsts And Passport MeteMetrics In The Dialect Corpus(Baysun District On The Example Of The Sound “J” Dialects)
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" target="_blank" href="https://scholar.google.com/citations?user=AKN8_B8AAAAJ&hl=ru#d=gs_md_cita-d&u=%2Fcitations%3Fview_op%3Dview_citation%26hl%3Dru%26user%3DAKN8_B8AAAAJ%26citation_for_view%3DAKN8_B8AAAAJ%3A_FxGoFyzp5QC%26tzom%3D-300">
+                                            TRANSCRIPTION IN THE CORPUS OF THE UZBEK NATIONAL BOYSUN DIALECT (On the example of Baysun District “J” Dialects)
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" target="_blank" href="https://scholar.google.com/citations?user=AKN8_B8AAAAJ&hl=ru#d=gs_md_cita-d&u=%2Fcitations%3Fview_op%3Dview_citation%26hl%3Dru%26user%3DAKN8_B8AAAAJ%26citation_for_view%3DAKN8_B8AAAAJ%3AUebtZRa9Y70C%26tzom%3D-300">
+                                            EXPRESSION OF SITUATIONAL VERBS RELATED TO BOYSUN DIALECT IN THE UZBEK NATIONAL CORPS. (USING THE LETTER "J" IN THE DIALECT OF BOYSUN DISTRICT AS AN EXAMPLE)
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" target="_blank" href="https://scholar.google.com/citations?user=AKN8_B8AAAAJ&hl=ru">
+                                            Boshqa maqolalar
+                                        </a>
+                                    </li>
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/jquery.scrollex.min.js"></script>
+    <script src="~/js/jquery.scrolly.min.js"></script>
+    <script src="~/js/browser.min.js"></script>
+    <script src="~/js/breakpoints.min.js"></script>
+    <script src="~/js/util.js"></script>
+    <script src="~/js/main.js"></script>

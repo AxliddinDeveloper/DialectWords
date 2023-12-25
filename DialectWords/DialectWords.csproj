@@ -94,11 +94,9 @@
     <None Include="wwwroot\js\dataTables.bootstrap4.min.js" />
     <None Include="wwwroot\js\datatables.min.js" />
     <None Include="wwwroot\js\inspinia.js" />
-    <None Include="wwwroot\js\jquery-3.1.1.min.js" />
     <None Include="wwwroot\js\jquery.min.js" />
     <None Include="wwwroot\js\jquery.scrollex.min.js" />
     <None Include="wwwroot\js\jquery.scrolly.min.js" />
-    <None Include="wwwroot\js\main.js" />
     <None Include="wwwroot\js\site.js" />
     <None Include="wwwroot\js\util.js" />
   </ItemGroup>

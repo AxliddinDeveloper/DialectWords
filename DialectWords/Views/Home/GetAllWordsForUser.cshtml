@@ -11,107 +11,252 @@
     if (Model.PageNumber > 1)
         b -= 1;
 }
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.26/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.26/js/jquery.dataTables.js"></script>
+
 <div class="backg">
-<section id="main">
-    <div class="container-md">
-        <div style="border-radius:10px" class="p-3 bg-white">
-            <div class="d-flex justify-content-between">
-                <form method="get" asp-action="GetAllWordsForUser" class="form-group p-2">
-                    <label>Qatorlar soni</label>
-                    <select asp-for="PageSize" onchange="this.form.submit()" class="form-select">
-                        <option value=2>2</option>
-                        <option value=10>10</option>
-                        <option value=50>50</option>
-                        <option value=100>100</option>
-                    </select>
-                    <label>Turkumlar</label>
-                    <select asp-for="Filter" asp-items="@ViewBag.Turkumlar" onchange="this.form.submit()" class="form-select">
-                        <option value="">Umumiy</option>
-                    </select>
-                    <input type="hidden" id="searchString" name="searchString" value="@j" class="form-control" />
-                </form>
+    <section id="main">
+        <div class="container-md">
+            <div style="border-radius:10px" class="p-3 bg-white">
+                <div class="d-flex justify-content-between">
+                    <form method="get" asp-action="GetAllWordsForUser" class="form-group p-2">
+                        <label>Qatorlar soni</label>
+                        <select asp-for="PageSize" onchange="this.form.submit()" class="form-select">
+                            <option value=2>2</option>
+                            <option value=10>10</option>
+                            <option value=50>50</option>
+                            <option value=100>100</option>
+                        </select>
+                        <label>Turkumlar</label>
+                        <select asp-for="Filter" asp-items="@ViewBag.Turkumlar" onchange="this.form.submit()" class="form-select">
+                            <option value="">Umumiy</option>
+                        </select>
+                        <input type="hidden" id="searchString" name="searchString" value="@j" class="form-control" />
+                    </form>
 
-                <form method="get" asp-action="GetAllWordsForUser" class="form-group p-2">
-                    <div class="form-group">
-                        <input type="text" id="searchString" name="searchString" class="form-control" placeholder="Qidiruv..." oninput="delayedSubmit(this)" />
-                    </div>
-                    <div class="form-group">
-                        <input type="hidden" id="pageSize" name="pageSize" value="@g" class="form-control" />
-                        <input type="hidden" id="filter" name="filter" value="@o" class="form-control" />
-                    </div>
-                </form>
+                    <form method="get" asp-action="GetAllWordsForUser" class="form-group p-2">
+                        <div class="form-group">
+                            <input type="text" id="searchString" name="searchString" class="form-control" placeholder="Qidiruv..." oninput="delayedSubmit(this)" />
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" id="pageSize" name="pageSize" value="@g" class="form-control" />
+                            <input type="hidden" id="filter" name="filter" value="@o" class="form-control" />
+                        </div>
+                    </form>
+                </div>
+
+                <div class="table-responsive">
+                    <table id="killen" class="table table-striped table-bordered table-hover dataTables-example" style="width: 120%; ">
+                        <thead class="txt">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th>
+                                    Adabiy Til
+                                    <button class="sort-btn" onclick="sortTable('AdabiyTil', this)" data-sort="asc">
+                                        <span style="color: black;">&#8639;&#8642;</span>
+                                    </button>
+                                </th>
+                                <th class="turkum">
+                                    Transliteratsiya
+                                    <button class="sort-btn" onclick="sortTable('Transliteratsiya')">
+                                        <span style="color: black;">&#8639;&#8642;</span>
+                                    </button>
+                                </th>
+                                <th>
+                                    Transkripsiya
+                                    <button class="sort-btn" onclick="sortTable('Transkripsiya')">
+                                        <span style="color: black;">&#8639;&#8642;</span>
+                                    </button>
+                                </th>
+                                <th>
+                                    Turkum
+                                    <button class="sort-btn" onclick="sortTable('Transliteratsiya')">
+                                        <span style="color: black;">&#8639;&#8642;</span>
+                                    </button>
+                                </th>
+                                <th>
+                                    Sheva Izohi
+                                    <button class="sort-btn" onclick="sortTable('ShevaIzohi')">
+                                        <span style="color: black;">&#8639;&#8642;</span>
+                                    </button>
+                                </th>
+                                <th>
+                                    Misollar
+                                    <button class="sort-btn" onclick="sortTable('Misollar')">
+                                        <span style="color: black;">&#8639;&#8642;</span>
+                                    </button>
+                                </th>
+                                <th>
+                                    Sinonim
+                                    <button class="sort-btn" onclick="sortTable('Sinonim')">
+                                        <span style="color: black;">&#8639;&#8642;</span>
+                                    </button>
+                                </th>
+                                <th>
+                                    Omonim
+                                    <button class="sort-btn" onclick="sortTable('Omonim')">
+                                        <span style="color: black;">&#8639;&#8642;</span>
+                                    </button>
+                                </th>
+                                <th>
+                                    Antonim
+                                    <button class="sort-btn" onclick="sortTable('Antonim')">
+                                        <span style="color: black;">&#8639;&#8642;</span>
+                                    </button>
+                                </th>
+                                <th class="Ozlashgan">
+                                    Ozlashgan Qatlam
+                                    <button class="sort-btn" onclick="sortTable('OzlashganQatlam')">
+                                        <span style="color: black;">&#8639;&#8642;</span>
+                                    </button>
+                                </th>
+                                <th>
+                                    Rus Tilida
+                                    <button class="sort-btn" onclick="sortTable('RusTilida')">
+                                        <span style="color: black;">&#8639;&#8642;</span>
+                                    </button>
+                                </th>
+                                <th>
+                                    Ingiliz Tilida
+                                    <button class="sort-btn" onclick="sortTable('IngilizTilida')">
+                                        <span style="color: black;">&#8639;&#8642;</span>
+                                    </button>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="userTableBody" class="txt">
+                            @{
+                                int i = 1;
+                                foreach (var word in Model.Words)
+                                {
+                                    <tr>
+                                        <th scope="row">@i</th>
+                                        <td>@word.AdabiyTil</td>
+                                        <td>@word.Transliteratsiya</td>
+                                        <td>@word.Transkripsiya</td>
+                                        <td>@word.Turkum</td>
+                                        <td>@word.ShevaIzohi</td>
+                                        <td>@word.Misollar</td>
+                                        <td>@word.Sinonim</td>
+                                        <td>@word.Omonim</td>
+                                        <td>@word.Antonim</td>
+                                        <td>@word.OzlashganQatlam</td>
+                                        <td>@word.RusTilida</td>
+                                        <td>@word.IngilizTilida</td>
+                                    </tr>
+                                    i += 1;
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <a asp-action="GetAllWordsForUser" asp-route-pageSize="@g" asp-route-pageNumber="@b" asp-route-searchString="@j" class="btn btn-outline-light text-black">
+                    &lt;&lt;
+                </a>
+                <section class="form-check-inline text-center m-auto">@Model.PageNumber/@Model.TotalPages</section>
+                <a asp-action="GetAllWordsForUser" asp-route-pageSize="@g" asp-route-pageNumber="@a" asp-route-searchString="@j" class="btn btn-outline-light text-black">
+                    >>
+                </a>
             </div>
-
-            <div class="table-container mb-5">
-                <table class="table table-striped table-responsive table-bordered dataTable datatable">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th>Adabiy Til</th>
-                            <th>Transliteratsiyaning</th>
-                            <th>Transkripsiya</th>
-                            <th>Turkum</th>
-                            <th>Sheva Izohi</th>
-                            <th>Misollar</th>
-                            <th>Sinonim</th>
-                            <th>Omonim</th>
-                            <th>Antonim</th>
-                            <th>Ozlashgan Qatlam</th>
-                            <th>Rus Tilida</th>
-                            <th>Ingiliz Tilida</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @{
-                        int i = 1;
-                        foreach (var word in Model.Words)
-                        {
-                        <tr>
-                            <th scope="row">@i</th>
-                            <td>@word.AdabiyTil</td>
-                            <td>@word.Transliteratsiya</td>
-                            <td>@word.Transkripsiya</td>
-                            <td>@word.Turkum</td>
-                            <td>@word.ShevaIzohi</td>
-                            <td>@word.Misollar</td>
-                            <td>@word.Sinonim</td>
-                            <td>@word.Omonim</td>
-                            <td>@word.Antonim</td>
-                            <td>@word.OzlashganQatlam</td>
-                            <td>@word.RusTilida</td>
-                            <td>@word.IngilizTilida</td>
-                        </tr>
-                        i += 1;
-                        }
-                        }
-                    </tbody>
-                </table>
-            </div>
-
-            <a asp-action="GetAllWordsForUser" asp-route-pageSize="@g" asp-route-pageNumber="@b" asp-route-searchString="@j" class="btn btn-outline-light text-black">
-                &lt;&lt;
-            </a>
-            <section class="form-check-inline text-center m-auto">@Model.PageNumber/@Model.TotalPages</section>
-            <a asp-action="GetAllWordsForUser" asp-route-pageSize="@g" asp-route-pageNumber="@a" asp-route-searchString="@j" class="btn btn-outline-light text-black">
-                >>
-            </a>
         </div>
-    </div>
     </section>
 </div>
-    <script>
-        var delayTimer;
+<script>
+    var delayTimer;
 
-        function delayedSubmit(input) {
-            clearTimeout(delayTimer);
-            delayTimer = setTimeout(function () {
-                input.form.submit();
-            }, 1000);
-        }
-    </script>
+    function delayedSubmit(input) {
+        clearTimeout(delayTimer);
+        delayTimer = setTimeout(function () {
+            input.form.submit();
+        }, 1000);
+    }
+</script>
 
-    <script>
-        document.getElementById('pageSizeSelect').addEventListener('change', function () {
-            this.form.submit();
+<script>
+    document.getElementById('pageSizeSelect').addEventListener('change', function () {
+        this.form.submit();
+    });
+</script>
+
+
+<style>
+    .sort-btn {
+        border: none;
+        padding: 2px 5px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: color 0.3s ease; /* Transition only the color */
+        box-sizing: border-box;
+    }
+
+    .sortable-header {
+        display: flex;
+        align-items: center; /* Center vertically */
+        justify-content: space-between; /* Space between items */
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center; /* Center vertically */
+    }
+
+    .header-text {
+        flex-grow: 1; /* Allow the text to grow to fill the space */
+        white-space: nowrap; /* Prevent text from wrapping */
+        overflow: hidden; /* Hide overflow */
+        text-overflow: ellipsis; /* Show ellipsis for overflow */
+        margin-right: 10px; /* Add a small margin between text and button */
+    }
+</style>
+
+
+<script>
+    let sortDirection = 'asc';
+
+    function sortTable(columnName) {
+        const tableBody = document.getElementById('userTableBody');
+        const rows = Array.from(tableBody.getElementsByTagName('tr'));
+
+        rows.sort((a, b) => {
+            const aValue = a.cells[columnIndex[columnName]].innerText.toLowerCase();
+            const bValue = b.cells[columnIndex[columnName]].innerText.toLowerCase();
+
+            if (sortDirection === 'asc') {
+                return aValue.localeCompare(bValue);
+            } else {
+                return bValue.localeCompare(aValue);
+            }
         });
-    </script>
+
+        tableBody.innerHTML = '';
+        rows.forEach((row, index) => {
+            // Update the number in the first column
+            row.cells[0].innerText = index + 1;
+            tableBody.appendChild(row);
+        });
+
+        // Toggle sort direction
+        sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+
+        // Update button styles
+        updateButtonStyles(columnName);
+    }
+
+    // Helper object to store column indices
+    const columnIndex = {
+        'AdabiyTil': 1,
+        'Transliteratsiya': 2,
+        'Transkripsiya': 3,
+        'Turkum': 4,
+        'ShevaIzohi': 5,
+        'Misollar': 6,
+        'Sinonim': 7,
+        'Omonim': 8,
+        'Antonim': 9,
+        'OzlashganQatlam': 10,
+        'RusTilida': 11,
+        'IngilizTilida': 12,
+    };
+</script>

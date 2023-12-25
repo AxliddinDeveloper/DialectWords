@@ -1,4 +1,4 @@
-@import url('site.css');
+﻿@import url('site.css');
 html {
   font-size: 14px;
 }
@@ -14,7 +14,7 @@ body {
 }
 
 .backg{
-    background-image:url(../images/bg.png);
+    background-image:url(../images/overlay_backround.jpg);
 }
 
 
@@ -254,3 +254,125 @@ element.style {
     margin: 0 auto;
 }
 
+.container-fluid {
+    padding-left: 0px;
+    padding-right: 2px;
+}
+
+table.dataTable thead .sorting:after {
+    opacity: 0.2;
+    content: "\e150";
+}
+
+/* Table */
+
+.table-wrapper {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+}
+
+table {
+    margin: 0 0 2rem 0;
+    width: 100%;
+}
+
+    table tbody tr {
+        border: solid 1px;
+        border-left: 0;
+        border-right: 0;
+    }
+
+    table td {
+        padding: 0.75rem 0.75rem;
+    }
+
+    table th {
+        font-family: "Source Sans Pro", Helvetica, sans-serif;
+        font-size: 0.6rem;
+        font-weight: 900;
+        letter-spacing: 0.075em;
+        line-height: 1.5;
+        padding: 0 0.75rem 0.75rem 0.75rem;
+        text-align: left;
+        text-transform: uppercase;
+    }
+
+@media screen and (max-width: 980px) {
+
+    table th {
+        font-size: 0.9rem;
+    }
+}
+
+table thead {
+    border-bottom: solid 2px;
+}
+
+table tfoot {
+    border-top: solid 2px;
+}
+
+table.alt {
+    border-collapse: separate;
+}
+
+    table.alt tbody tr td {
+        border: solid 1px;
+        border-left-width: 0;
+        border-top-width: 0;
+    }
+
+        table.alt tbody tr td:first-child {
+            border-left-width: 1px;
+        }
+
+    table.alt tbody tr:first-child td {
+        border-top-width: 1px;
+    }
+
+    table.alt thead {
+        border-bottom: 0;
+    }
+
+    table.alt tfoot {
+        border-top: 0;
+    }
+
+table tbody tr {
+    border-color: #eeeeee;
+}
+
+    table tbody tr:nth-child(2n + 1) {
+        background-color: rgba(220, 220, 220, 0.25);
+    }
+
+table th {
+    color: #212931;
+}
+
+table thead {
+    border-bottom-color: #eeeeee;
+    font-size: 10px;
+}
+
+table tfoot {
+    border-top-color: #eeeeee;
+}
+
+table.alt tbody tr td {
+    border-color: #eeeeee;
+}
+
+.sort-btn {
+    background: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.turkum {
+    width: 10%;
+}
+.Ozlashgan {
+    width: 11%;
+}

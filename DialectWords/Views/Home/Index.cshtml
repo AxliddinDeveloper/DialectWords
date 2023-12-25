@@ -1,112 +1,119 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<div class="backg">
+    <section id="main">
+        <div class="container-md">
+            <div class="p-3 bg-white">
+            <section id="banner">
+                <header>
+                    <h2>Onlayn shevalar bazasi</h2>
+                    <p>(Saralash va qidirish imkoniyatlari bilan)</p>
+                </header>
+            </section>
 
-<section id="banner">
-    <header>
-        <h2>Onlayn shevalar bazasi</h2>
-        <p>(Saralash va qidirish imkoniyatlari bilan)</p>
-    </header>
-</section>
-
-<!-- Intro -->
-<section id="intro" class="container">
-    <div class="row cards">
-        <div class="col-4 col-12-medium">
-            <section class="first">
-                <header>
-                    <h2>Turkum</h2>
-                </header>
-                <p>Sheva so'zlarining so'z turkumlari <br />guruhlari bo'yicha statistikasi.</p>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Mustaqil
-                        <span class="badge text-dark">
-                            492
-                        </span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Yordamchi
-                        <span class="badge text-dark">
-                            3
-                        </span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Alohida
-                        <span class="badge text-dark">
-                            7
-                        </span>
-                    </li>
-                </ul>
+            <!-- Intro -->
+            <section id="intro" class="container">
+                <div class="row cards">
+                    <div class="col-4 col-12-medium">
+                        <section class="first">
+                            <header>
+                                <h2>Turkum</h2>
+                            </header>
+                            <p>Sheva so'zlarining so'z turkumlari <br />guruhlari bo'yicha statistikasi.</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Mustaqil
+                                    <span class="badge text-dark">
+                                        492
+                                    </span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Yordamchi
+                                    <span class="badge text-dark">
+                                        3
+                                    </span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Alohida
+                                    <span class="badge text-dark">
+                                        7
+                                    </span>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="col-4 col-12-medium">
+                        <section class="middle">
+                            <header>
+                                <h2>Sheva so'zi</h2>
+                            </header>
+                            <p>Boysun shevasidan bazaga qo'shilgan yangi so'zlar.</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Jaloq
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Jalpaymoq
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Jalpoq
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Jalribash
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Jamov
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="col-4 col-12-medium">
+                        <section class="last">
+                            <header>
+                                <h2>Sheva etimologiyasi</h2>
+                            </header>
+                            <p>Eng ko'p sozlar o'zlashgan <br />5 ta manba til.</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Forscha
+                                    <span class="badge text-dark">
+                                        62
+                                    </span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Arabcha
+                                    <span class="badge text-dark">
+                                        16
+                                    </span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    mo’g’ul
+                                    <span class="badge text-dark">
+                                        2
+                                    </span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Ruscha
+                                    <span class="badge text-dark">
+                                        0
+                                    </span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Inglizcha
+                                    <span class="badge text-dark">
+                                        0
+                                    </span>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+                    <ul class="actions">
+                        <li><a asp-action="GetAllWordsForUser" class="button large">Jadvalga o'tish</a></li>
+                    </ul>
             </section>
+            </div>
         </div>
-        <div class="col-4 col-12-medium">
-            <section class="middle">
-                <header>
-                    <h2>Sheva so'zi</h2>
-                </header>
-                <p>Boysun shevasidan bazaga qo'shilgan yangi so'zlar.</p>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Jaloq
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Jalpaymoq
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Jalpoq
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Jalribash
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Jamov
-                    </li>
-                </ul>
-            </section>
-        </div>
-        <div class="col-4 col-12-medium">
-            <section class="last">
-                <header>
-                    <h2>Sheva etimologiyasi</h2>
-                </header>
-                <p>Eng ko'p sozlar o'zlashgan <br />5 ta manba til.</p>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Forscha
-                        <span class="badge text-dark">
-                            62
-                        </span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Arabcha
-                        <span class="badge text-dark">
-                            16
-                        </span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        mo’g’ul
-                        <span class="badge text-dark">
-                            2
-                        </span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Ruscha
-                        <span class="badge text-dark">
-                            0
-                        </span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Inglizcha
-                        <span class="badge text-dark">
-                            0
-                        </span>
-                    </li>
-                </ul>
-            </section>
-        </div>
-    </div>
-        <ul class="actions">
-            <li><a asp-action="GetAllWordsForUser" class="button large">Jadvalga o'tish</a></li>
-        </ul>
-</section>
+    </section>
+</div>

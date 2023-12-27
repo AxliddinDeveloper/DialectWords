@@ -56,7 +56,7 @@
 
                     <form method="get" asp-action="GetAllWordsForUser" class="form-group p-2">
                         <div class="form-group">
-                            <input type="text" id="searchString" name="searchString" class="form-control" placeholder="Qidiruv..." oninput="delayedSubmit(this)" />
+                            <input type="text" id="searchString" name="searchString" class="form-control" placeholder="Qidiruv..." value="@j" oninput="delayedSubmit(this)" />
                         </div>
                         <div class="form-group">
                             <input type="hidden" id="pageSize" name="pageSize" value="@g" class="form-control" />

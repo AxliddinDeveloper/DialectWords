@@ -36,7 +36,7 @@
                 <article id="contact" class="box post">
                     <header>
                         <h2>Bog'lanish</h2>
-                        <p style="padding-left: 380px">Muallif bilan bog'lanish</p>
+                        <p style="margin-left: auto">Muallif bilan bog'lanish</p>
                     </header>
 
                     <div class="row">
@@ -55,7 +55,7 @@
                                     </div>
                                     <div class="col-md-5 col-sm-6">
                                         <input asp-for="Verify" type="text" v-model="aa577a5f35cc008" class="form-control">
-                                        <p class="text-danger">@message</p>
+                                        <p :class="{ 'text-success': message === 'Xabaringiz yuborildi!', 'text-danger': message === 'Tasdiqlash kodi xato!' }">@message</p>
                                     </div>
                                 </div>
                                 <button class="button btn-block mt-4" type="submit">Yuborish</button>
@@ -83,7 +83,6 @@
                                 <li class="nav-item"><a class="nav-link text-white" target="_blank" href="http://uzswlu.uz/">O`zbekiston Davlat Jahon Tillari Universiteti</a></li>
                                 <li class="nav-item"><a class="nav-link text-white" target="_blank" href="https://navoiy-uni.uz/">Toshkent davlat o‘zbek tili va adabiyoti universiteti</a></li>
                                 <li class="nav-item"><a class="nav-link text-white" target="_blank" href="https://tsuos.uz/ru/">Toshkent davlat sharqshunoslik universiteti</a></li>
-
                             </ul>
                         </section>
                     </div>

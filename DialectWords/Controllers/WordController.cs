@@ -36,7 +36,6 @@ namespace DialectWords.Controllers
         {
             IQueryable<Word> words = this.wordService.RetrieveAllWords();
             IQueryable<Word> foundWords;
-            IQueryable<Word> foundWords2;
 
 
             if (!string.IsNullOrEmpty(searchString) && string.IsNullOrEmpty(filter))

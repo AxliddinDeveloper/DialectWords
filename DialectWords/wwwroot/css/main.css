@@ -8,7 +8,7 @@ pre, a, abbr, acronym, address, big, cite,
 code, del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var, b,
 u, i, center, dl, dt, dd, ol, ul, li, fieldset,
-form, label, legend, table, caption, tbody,
+form, label, legend, caption, tbody,
 tfoot, thead, tr, th, td, article, aside,
 canvas, details, embed, figure, figcaption,
 footer, header, hgroup, menu, nav, output, ruby,
@@ -40,12 +40,6 @@ blockquote, q {
 		content: '';
 		content: none;
 	}
-
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
 body {
 	-webkit-text-size-adjust: none;
 }
@@ -82,7 +76,6 @@ input, select, textarea {
 		html, body {
 			min-width: 320px;
 		}
-
 	}
 
 	html {
@@ -108,7 +101,7 @@ input, select, textarea {
 			transition: none !important;
 		}
 
-/* Type */
+/* Type table */
 
 	html {
 		font-size: 16pt;
@@ -2720,7 +2713,7 @@ input, select, textarea {
 	}
 
 /* Section/Article */
-
+table
 	section.special, article.special {
 		text-align: center;
 	}
@@ -2818,106 +2811,9 @@ input, select, textarea {
 		border-top-color: #eeeeee;
 	}
 
-/* Table */
 
-	.table-wrapper {
-		-webkit-overflow-scrolling: touch;
-		overflow-x: auto;
-	}
 
-	table {
-		margin: 0 0 2rem 0;
-		width: 100%;
-	}
-
-		table tbody tr {
-			border: solid 1px;
-			border-left: 0;
-			border-right: 0;
-		}
-
-		table td {
-			padding: 0.75rem 0.75rem;
-		}
-
-		table th {
-			font-family: "Source Sans Pro", Helvetica, sans-serif;
-			font-size: 0.8rem;
-			font-weight: 900;
-			letter-spacing: 0.075em;
-			line-height: 1.5;
-			padding: 0 0.75rem 0.75rem 0.75rem;
-			text-align: left;
-			text-transform: uppercase;
-		}
-
-			@media screen and (max-width: 980px) {
-
-				table th {
-					font-size: 0.9rem;
-				}
-
-			}
-
-		table thead {
-			border-bottom: solid 2px;
-		}
-
-		table tfoot {
-			border-top: solid 2px;
-		}
-
-		table.alt {
-			border-collapse: separate;
-		}
-
-			table.alt tbody tr td {
-				border: solid 1px;
-				border-left-width: 0;
-				border-top-width: 0;
-			}
-
-				table.alt tbody tr td:first-child {
-					border-left-width: 1px;
-				}
-
-			table.alt tbody tr:first-child td {
-				border-top-width: 1px;
-			}
-
-			table.alt thead {
-				border-bottom: 0;
-			}
-
-			table.alt tfoot {
-				border-top: 0;
-			}
-
-	table tbody tr {
-		border-color: #eeeeee;
-	}
-
-		table tbody tr:nth-child(2n + 1) {
-			background-color: rgba(220, 220, 220, 0.25);
-		}
-
-	table th {
-		color: #212931;
-	}
-
-	table thead {
-		border-bottom-color: #eeeeee;
-	}
-
-	table tfoot {
-		border-top-color: #eeeeee;
-	}
-
-	table.alt tbody tr td {
-		border-color: #eeeeee;
-	}
-
-/* Pagination */
+/* Pagination  table*/
 
 	.pagination {
 		display: -moz-inline-flex;
@@ -3242,15 +3138,6 @@ input, select, textarea {
 			visibility: hidden;
 		}
 
-			#intro.hidden + #header .logo {
-				-moz-transform: translateY(0);
-				-webkit-transform: translateY(0);
-				-ms-transform: translateY(0);
-				transform: translateY(0);
-				opacity: 1;
-				visibility: visible;
-			}
-
 		body.is-preload #intro {
 			-moz-transform: translateY(2rem);
 			-webkit-transform: translateY(2rem);
@@ -3308,7 +3195,7 @@ input, select, textarea {
 
 		}
 
-/* Header */
+/* Header  */
 
 	#header {
 		color: #ffffff;

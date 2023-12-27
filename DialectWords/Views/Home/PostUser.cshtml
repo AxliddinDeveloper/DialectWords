@@ -41,7 +41,7 @@
 
                     <div class="row">
                         <div class="col-md-6 d-none d-md-block d-lg-block">
-                            <img src="~/images/image (1).jpg" alt style="width: 100%;height: auto;" />
+                            <img src="~/images/image (1).jpg" style="width: 100%;height: auto;" />
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <form method="post" asp-action="PostUser" class="border border-light pr-3">
@@ -54,7 +54,7 @@
                                         <img src="~/images/577a5f35cc008.png">
                                     </div>
                                     <div class="col-md-5 col-sm-6">
-                                        <input asp-for="Verify" type="text" v-model="aa577a5f35cc008" class="form-control">
+                                        <input asp-for="Verify" type="text" v-model="aa577a5f35cc008" class="form-control" placeholder="Tasdiqlash kodi">
                                         <p :class="{ 'text-success': message === 'Xabaringiz yuborildi!', 'text-danger': message === 'Tasdiqlash kodi xato!' }">@message</p>
                                     </div>
                                 </div>

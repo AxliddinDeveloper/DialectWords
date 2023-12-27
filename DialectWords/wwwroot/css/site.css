@@ -910,3 +910,24 @@ body.is-preload #intro {
     justify-content: center;
 }
 
+#navPanelToggle:before {
+    content: '\f0c9';
+    margin-right: 0.5rem;
+}
+
+#navPanelToggle:before {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    text-transform: none !important;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}

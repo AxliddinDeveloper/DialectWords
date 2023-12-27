@@ -23,10 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\css\patterns\font-awesome\fonts copy\glyphicons-halflings-regular.svg" />
     <None Include="wwwroot\css\patterns\font-awesome\fonts copy\glyphicons-halflings-regular.woff2" />
     <None Include="wwwroot\css\patterns\font-awesome\fonts\fontawesome-webfont.svg" />

@@ -8,7 +8,7 @@
 
 	var	$window = $(window),
 		$body = $('body'),
-		$wrapper = $('#wrapper'),
+		$wrapper = $('#main-wrapper'),
 		$header = $('#header'),
 		$nav = $('#nav'),
 		$main = $('#main'),

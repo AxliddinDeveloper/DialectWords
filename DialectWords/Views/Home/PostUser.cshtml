@@ -9,6 +9,8 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.26/css/jquery.dataTables.css">
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.26/js/jquery.dataTables.js"></script>
+<!-- Wrapper -->
+<div id="wrapper" class="fade-in">
 <!-- Header -->
 <header id="header">
 </header>
@@ -46,9 +48,10 @@
                         <div class="col-md-6 col-sm-12">
                             <form method="post" asp-action="PostUser" class="border border-light pr-3">
 
-                                <input asp-for="Name" type="text" v-model="name" class="form-control mb-4" placeholder="Ismingiz">
-                                <input asp-for="Email" type="email" v-model="email" class="form-control mb-4" placeholder="E-mail manzilingiz">
-                                <textarea asp-for="Comment" class="form-control rounded-0" v-model="message" rows="3" placeholder="Xabar matni"></textarea>
+                                <input asp-for="Name" type="text" v-model="name" class="form-control mb-4" placeholder="Ismingiz" required>
+                                <input asp-for="Email" type="email" v-model="email" class="form-control mb-4" placeholder="E-mail manzilingiz" required>
+                                <textarea asp-for="Comment" class="form-control rounded-0" v-model="message" rows="3" placeholder="Xabar matni" required></textarea>
+
                                 <div class="form-row mt-4">
                                     <div class="col-md-4 col-sm-6">
                                         <img src="~/images/577a5f35cc008.png">
@@ -103,7 +106,7 @@
                     <div class="col-4 col-12-medium">
                         <section>
                             <header>
-                                <h2>Muallif maqolalari</h2>
+                                <h2>Muallif maqolalari</h2><a href="c:\users\user\desktop\projects\dialectwords\dialectwords\views\home\postuser.cshtml">c:\users\user\desktop\projects\dialectwords\dialectwords\views\home\postuser.cshtml</a>
                             </header>
                             <ul class="divided">
                                 <li class="nav-item">
@@ -134,3 +137,12 @@
         </section>
     </div>
 </div>
+
+<!-- Scripts -->
+<script src="~/js/jquery.min.js"></script>
+<script src="~/js/jquery.scrollex.min.js"></script>
+<script src="~/js/jquery.scrolly.min.js"></script>
+<script src="~/js/browser.min.js"></script>
+<script src="~/js/breakpoints.min.js"></script>
+<script src="~/js/util.js"></script>
+<script src="~/js/main.js"></script>

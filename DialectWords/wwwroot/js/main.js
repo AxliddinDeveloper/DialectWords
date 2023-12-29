@@ -147,7 +147,7 @@
 				'<div id="navPanel">' +
 					'<nav>' +
 					'</nav>' +
-					'<a href="#navPanel" class="close"></a>' +
+					'<a href="#navPanel" class="close">MENU</a>' +
 				'</div>'
 			)
 				.appendTo($body)

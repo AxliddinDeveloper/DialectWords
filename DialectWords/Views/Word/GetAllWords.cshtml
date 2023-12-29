@@ -16,6 +16,10 @@
 <noscript><link rel="stylesheet" href="~/css/noscript.css" /></noscript>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.26/js/jquery.dataTables.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+<!-- Wrapper -->
+<div id="wrapper" class="fade-in">
 <!-- Header -->
 <header id="header">
 </header>
@@ -38,17 +42,12 @@
 </nav>
 <section id="main">
     <div style="border-radius:10px" class="p-3 bg-white">
-        <div class="navbar-collapse collapse d-sm-inline-flex">
             <a class="btn btn-outline-primary" asp-area="" asp-controller="Word" asp-action="PostWord">Add Word</a>
-        </div>
-        <div class="navbar-collapse collapse d-sm-inline-flex">
             <a class="btn btn-outline-primary" asp-area="" asp-controller="Word" asp-action="GetAllUsers">Users</a>
-        </div>
         <div class="d-flex justify-content-between">
-            <form method="get" asp-action="GetAllWordsForUser" class="form-group p-2">
+            <form method="get" asp-action="GetAllWords" class="form-group p-2">
                 <label>Qatorlar soni</label>
                 <select asp-for="PageSize" onchange="this.form.submit()" class="form-select">
-                    <option value=2>2</option>
                     <option value=10>10</option>
                     <option value=50>50</option>
                     <option value=100>100</option>
@@ -60,7 +59,7 @@
                 <input type="hidden" id="searchString" name="searchString" value="@j" class="form-control" />
             </form>
 
-            <form method="get" asp-action="GetAllWordsForUser" class="form-group p-2">
+            <form method="get" asp-action="GetAllWords" class="form-group p-2">
                 <div class="form-group">
                     <input type="text" id="searchString" name="searchString" class="form-control" placeholder="Qidiruv..." value="@j" oninput="delayedSubmit(this)" />
                 </div>
@@ -76,6 +75,7 @@
                 <table id="killen" class="table table-striped table-bordered table-hover dataTables-example" style="margin-left: auto;">
                     <thead class="txt">
                         <tr>
+                            <th>operators</th>
                             <th scope="col">#</th>
                             <th style="width: 8%; ">
                                 Adabiy Til
@@ -169,6 +169,14 @@
                             foreach (var word in Model.Words)
                             {
                                 <tr>
+                                    <td>
+                                        <a asp-controller="Word" asp-action="EditWord" asp-route-id="@word.id" class="btn btn-outline-light text-dark h-25">
+                                            Edit
+                                        </a>
+                                        <a asp-controller="Word" asp-action="DeleteWord" asp-route-id="@word.id" class="btn btn-outline-light text-danger h-25">
+                                            Delete
+                                        </a>
+                                    </td>
                                     <th scope="row">@i</th>
                                     <td>@word.AdabiyTil</td>
                                     <td>@word.Transliteratsiya</td>
@@ -192,11 +200,11 @@
         </div>
 
 
-        <a asp-action="GetAllWordsForUser" asp-route-pageSize="@g" asp-route-pageNumber="@b" asp-route-searchString="@j" class="btn btn-outline-light text-black">
+        <a asp-action="GetAllWords" asp-route-pageSize="@g" asp-route-pageNumber="@b" asp-route-searchString="@j" class="btn btn-outline-light text-black">
             &lt;&lt;
         </a>
         <section class="form-check-inline text-center m-auto">@Model.PageNumber/@Model.TotalPages</section>
-        <a asp-action="GetAllWordsForUser" asp-route-pageSize="@g" asp-route-pageNumber="@a" asp-route-searchString="@j" class="btn btn-outline-light text-black">
+        <a asp-action="GetAllWords" asp-route-pageSize="@g" asp-route-pageNumber="@a" asp-route-searchString="@j" class="btn btn-outline-light text-black">
             >>
         </a>
     </div>

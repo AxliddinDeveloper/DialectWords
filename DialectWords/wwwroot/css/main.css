@@ -2023,7 +2023,7 @@ input, select, textarea {
 
 		}
 
-/* Box */
+/* Box  footer*/
 
 	.box {
 		border: solid 2px;
@@ -4076,14 +4076,6 @@ table
 					#footer > section.split.contact > section:last-child {
 						padding: 2rem;
 					}
-
-		}
-
-		@media screen and (max-width: 480px) {
-
-			#footer {
-				width: 100%;
-			}
 
 		}
 

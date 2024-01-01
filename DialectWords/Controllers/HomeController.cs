@@ -1,10 +1,7 @@
-using System.Diagnostics;
 using DialectWords.Models;
-using DialectWords.Models.Foundations.Users;
 using DialectWords.Models.Foundations.words;
 using DialectWords.Services.Foundations;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace DialectWords.Controllers
 {

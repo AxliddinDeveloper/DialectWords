@@ -189,11 +189,11 @@
                 </div>
 
 
-                <a asp-action="GetAllWordsForUser" asp-route-pageSize="@g" asp-route-pageNumber="@b" asp-route-searchString="@j" class="btn btn-outline-light text-black">
+            <a asp-action="GetAllWordsForUser" asp-route-pageSize="@g" asp-route-pageNumber="@b" asp-route-searchString="@j" asp-route-filter="@o" class="btn btn-outline-light text-black">
                     &lt;&lt;
                 </a>
                 <section class="form-check-inline text-center m-auto">@Model.PageNumber/@Model.TotalPages</section>
-                <a asp-action="GetAllWordsForUser" asp-route-pageSize="@g" asp-route-pageNumber="@a" asp-route-searchString="@j" class="btn btn-outline-light text-black">
+            <a asp-action="GetAllWordsForUser" asp-route-pageSize="@g" asp-route-pageNumber="@a" asp-route-searchString="@j" asp-route-filter="@o" class="btn btn-outline-light text-black">
                     >>
                 </a>
             </div>
@@ -221,7 +221,7 @@
                     <div class="col-4 col-6-medium col-12-small">
                         <section>
                             <header>
-                                <h2>Foydali havolalar</h2>
+                                <h2 class="form-control-color: text-white">Foydali havolalar</h2>
                             </header>
                             <ul class="divided">
                                 <li class="nav-item"><a class="nav-link text-white" target="_blank" href="https://idioms.uz">O'zbek Milliy korpusida idiomalar bazasi</a></li>
@@ -235,7 +235,7 @@
                     <div class="col-4 col-12-medium">
                         <section>
                             <header>
-                                <h2>Muallif maqolalari</h2>
+                                <h2 class="form-control-color: text-white">Muallif maqolalari</h2>
                             </header>
                             <ul class="divided">
                                 <li class="nav-item">

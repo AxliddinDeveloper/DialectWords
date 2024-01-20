@@ -32,10 +32,19 @@
         }
     }
 
+    int previousPage = Model.PageNumber - 1;
+    int nextPage = Model.PageNumber + 1;
+    previousPage = Math.Max(1, previousPage); // Ensure it doesn't go below 1
+    nextPage = Math.Min(Model.TotalPages, nextPage); // Ensure it doesn't go beyond TotalPages
+}
+
     // Ensure endPage does not exceed TotalPages
     endPage = Math.Min(endPage, Model.TotalPages);
 }
-
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/font-awesome.css" rel="stylesheet">
+    <link href="~/css/datatables.min.css" rel="stylesheet">
+    <link href="~/css/animate.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="~/css/main.css" />
 <noscript><link rel="stylesheet" href="~/css/noscript.css" /></noscript>
@@ -54,23 +63,27 @@
             <a  asp-area="" asp-controller="Home" asp-action="Index">Bosh sahifa</a>
         </li>
         <li>
-            <a class="active" asp-area="" asp-controller="Home" asp-action="GetAllWordsForUser">So'zlar jadvali</a>
+                <a class="active" asp-area="" asp-controller="Home" asp-action="SozlarJadvali">So'zlar jadvali</a>
         </li>
         <li>
             <a asp-area="" asp-controller="Home" asp-action="LoyihaHaqida">Loyiha haqida</a>
         </li>
         <li>
-            <a asp-area="" asp-controller="Home" asp-action="PostUser">Aloqa</a>
+                <a asp-area="" asp-controller="Home" asp-action="Aloqa">Aloqa</a>
         </li>
     </ul>
+        <ul class="icons">
+            <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+        </ul>
 </nav>
     <section id="main">
             <div style="border-radius:10px" class="p-3 bg-white">
                 <div class="d-flex justify-content-between">
-                    <form method="get" asp-action="GetAllWordsForUser" class="form-group p-2">
+                <form method="get" asp-action="SozlarJadvali" class="form-group p-2">
                         <label>Qatorlar soni</label>
                         <select asp-for="PageSize" onchange="this.form.submit()" class="form-select">
-                            <option value=2>2</option>
                             <option value=10>10</option>
                             <option value=50>50</option>
                             <option value=100>100</option>
@@ -82,7 +95,7 @@
                         <input type="hidden" id="searchString" name="searchString" value="@j" class="form-control" />
                     </form>
 
-                    <form method="get" asp-action="GetAllWordsForUser" class="form-group p-2">
+                <form method="get" asp-action="SozlarJadvali" class="form-group p-2">
                         <div class="form-group">
                             <input type="text" id="searchString" name="searchString" class="form-control" placeholder="Qidiruv..." value="@j" oninput="delayedSubmit(this)" />
                         </div>
@@ -94,7 +107,7 @@
                 </div>
 
                 <div class="col-md-12">
-                <div class="table-responsive">
+                <div class="table-responsive rounded">
                 <table id="killen" class="table table-striped table-bordered table-hover dataTables-example" style="margin-left: auto;">
                             <thead class="txt">
                                 <tr>
@@ -109,77 +122,77 @@
                                     <th style="width: 12%; ">
                                         Transliteratsiya
                                         <br />
-                                    <button class="sort-btn" onclick="sortTable('Transliteratsiya')">
+                                    <button class="sort-btn" onclick="sortTable('Transliteratsiya')" data-sort="asc">
                                             <span style="color: black;">&#8639;&#8642;</span>
                                         </button>
                                     </th>
                                     <th style="width: 10%; ">
                                         Transkripsiya
                                 <br />
-                                        <button class="sort-btn" onclick="sortTable('Transkripsiya')">
+                                        <button class="sort-btn" onclick="sortTable('Transkripsiya')" data-sort="asc">
                                             <span style="color: black;">&#8639;&#8642;</span>
                                         </button>
                                     </th>
                                     <th style="width: 6%; ">
                                         Turkum
                                 <br />
-                                        <button class="sort-btn" onclick="sortTable('Transliteratsiya')">
+                                        <button class="sort-btn" onclick="sortTable('Turkum')" data-sort="asc">
                                             <span style="color: black;">&#8639;&#8642;</span>
                                         </button>
                                     </th>
                                     <th style="width: 10%; ">
                                         Sheva Izohi
                                 <br />
-                                        <button class="sort-btn" onclick="sortTable('ShevaIzohi')">
+                                        <button class="sort-btn" onclick="sortTable('ShevaIzohi')" data-sort="asc">
                                             <span style="color: black;">&#8639;&#8642;</span>
                                         </button>
                                     </th>
                                     <th style="width: 10%; ">
                                         Misollar
                                 <br />
-                                        <button class="sort-btn" onclick="sortTable('Misollar')">
+                                        <button class="sort-btn" onclick="sortTable('Misollar')" data-sort="asc">
                                             <span style="color: black;">&#8639;&#8642;</span>
                                         </button>
                                     </th>
                                     <th style="width: 10%; ">
                                         Sinonim
                                 <br />
-                                        <button class="sort-btn" onclick="sortTable('Sinonim')">
+                                        <button class="sort-btn" onclick="sortTable('Sinonim')" data-sort="asc">
                                             <span style="color: black;">&#8639;&#8642;</span>
                                         </button>
                                     </th>
                                     <th style="width: 10%; ">
                                         Omonim
                                 <br />
-                                        <button class="sort-btn" onclick="sortTable('Omonim')">
+                                        <button class="sort-btn" onclick="sortTable('Omonim')" data-sort="asc">
                                             <span style="color: black;">&#8639;&#8642;</span>
                                         </button>
                                     </th>
                                     <th style="width: 10%; ">
                                         Antonim
                                 <br />
-                                        <button class="sort-btn" onclick="sortTable('Antonim')">
+                                        <button class="sort-btn" onclick="sortTable('Antonim')" data-sort="asc">
                                             <span style="color: black;">&#8639;&#8642;</span>
                                         </button>
                                     </th>
                                     <th style="width: 10%; ">
                                         Ozlashgan Qatlam
                                 <br />
-                                        <button class="sort-btn" onclick="sortTable('OzlashganQatlam')">
+                                        <button class="sort-btn" onclick="sortTable('OzlashganQatlam')" data-sort="asc">
                                             <span style="color: black;">&#8639;&#8642;</span>
                                         </button>
                                     </th>
                                     <th style="width: 15%; ">
                                         Rus Tilida
                                 <br />
-                                        <button class="sort-btn" onclick="sortTable('RusTilida')">
+                                        <button class="sort-btn" onclick="sortTable('RusTilida')" data-sort="asc">
                                             <span style="color: black;">&#8639;&#8642;</span>
                                         </button>
                                     </th>
                                     <th style="width: 200px; ">
                                         Ingiliz Tilida
                                 <br />
-                                        <button class="sort-btn" onclick="sortTable('IngilizTilida')">
+                                        <button class="sort-btn" onclick="sortTable('IngilizTilida')" data-sort="asc">
                                             <span style="color: black;">&#8639;&#8642;</span>
                                         </button>
                                     </th>
@@ -213,18 +226,18 @@
                     </div>
                 </div>
             <div class="pagination">
-                <a asp-action="GetAllWordsForUser" asp-route-pageSize="@g" asp-route-pageNumber="@(Model.PageNumber - 1)" asp-route-searchString="@j" class="btn btn-outline-light text-black">
+                <a asp-action="SozlarJadvali" asp-route-pageSize="@g" asp-route-pageNumber="@previousPage" asp-route-searchString="@j" class="btn btn-outline-light text-black">
                     &lt;&lt;
                 </a>
 
                 @for (int z = startPage; z <= endPage; z++)
                 {
-                    <a asp-action="GetAllWordsForUser" asp-route-pageSize="@g" asp-route-pageNumber="@z" asp-route-searchString="@j" class="btn btn-outline-light text-black @(z == Model.PageNumber ? "active" : "")">
+                    <a asp-action="SozlarJadvali" asp-route-pageSize="@g" asp-route-pageNumber="@z" asp-route-searchString="@j" class="btn btn-outline-light text-black @(z == Model.PageNumber ? "active" : "")">
                         @z
                     </a>
                 }
 
-                <a asp-action="GetAllWordsForUser" asp-route-pageSize="@g" asp-route-pageNumber="@(Model.PageNumber + 1)" asp-route-searchString="@j" class="btn btn-outline-light text-black">
+                <a asp-action="SozlarJadvali" asp-route-pageSize="@g" asp-route-pageNumber="@nextPage" asp-route-searchString="@j" class="btn btn-outline-light text-black">
                     &gt;&gt;
                 </a>
             </div>
@@ -413,3 +426,46 @@
 <script src="~/js/breakpoints.min.js"></script>
 <script src="~/js/util.js"></script>
 <script src="~/js/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.26/js/jquery.dataTables.js"></script>
+
+    <script src="~/js/jquery-3.1.1.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/jquery.metisMenu.js"></script>
+    <script src="~/js/jquery.slimscroll.min.js"></script>
+    <script src="~/js/datatables.min.js"></script>
+    <script src="~/js/inspinia.js"></script>
+    <script src="~/js/pace.min.js"></script>
+
+    <!-- Page-Level Scripts -->
+    <script>
+        $(document).ready(function () {
+            $('.dataTables-example').DataTable({
+                pageLength: 25,
+                responsive: true,
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    { extend: 'copy' },
+                    { extend: 'csv' },
+                    { extend: 'excel', title: 'ExampleFile' },
+                    { extend: 'pdf', title: 'ExampleFile' },
+
+                    {
+                        extend: 'print',
+                        customize: function (win) {
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                .addClass('compact')
+                                .css('font-size', 'inherit');
+                        }
+                    }
+                ]
+
+            });
+
+        });
+
+    </script>

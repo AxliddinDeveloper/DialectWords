@@ -2,21 +2,26 @@
     ViewData["Title"] = "Home Page";
 }
 <meta charset="utf-8" />
-<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.26/js/jquery.dataTables.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="~/css/main.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.26/css/dataTables.bootstrap4.min.css">
+
     <!-- Wrapper -->
     <div id="wrapper" class="fade-in">
 
-    <div id="intro">
-        <h1>O'zbek tili yordamchi so'zlar bazasiga xush kelibsiz!</h1>
-        <p>Saralash va qidirish imkoniyatlari bilan</p>
-        <ul class="actions">
-            <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly"></a></li>
-        </ul>
-    </div>
+					<div id="intro">
+						<h1>O'zbek tili yordamchi so'zlar bazasiga xush kelibsiz!</h1>
+						<p>Saralash va qidirish imkoniyatlari bilan</p>
+						<ul class="actions">
+							<li><a style="border-radius: 50%" href="#header" class="button icon solid solo fa-arrow-down scrolly "></a></li>
+						</ul>
+					</div>
 
         <!-- Header -->
         <header id="header">
@@ -29,20 +34,19 @@
                 <a class="active" asp-area="" asp-controller="Home" asp-action="Index">Bosh sahifa</a>
             </li>
             <li>
-                <a  asp-area="" asp-controller="Home" asp-action="GetAllWordsForUser">So'zlar jadvali</a>
+                <a asp-area="" asp-controller="Home" asp-action="SozlarJadvali">So'zlar jadvali</a>
             </li>
             <li>
                 <a  asp-area="" asp-controller="Home" asp-action="LoyihaHaqida">Loyiha haqida</a>
             </li>
             <li>
-                <a  asp-area="" asp-controller="Home" asp-action="PostUser">Aloqa</a>
+                <a asp-area="" asp-controller="Home" asp-action="Aloqa">Aloqa</a>
             </li>
         </ul>
         <ul class="icons">
             <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
             <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
             <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-            <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
         </ul>
     </nav>
 
@@ -243,7 +247,7 @@
             width: 100%;
             height: 100%;
             background-color: #212931;
-            background-image: url(../images/overlay4.png), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(../images/bg.jpg);
+            background-image: url(~/images/overlay4.png), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(~/images/bg.jpg);
             background-size: auto, auto, 100% auto;
             background-position: center, center, top center;
             background-repeat: repeat, no-repeat, no-repeat;

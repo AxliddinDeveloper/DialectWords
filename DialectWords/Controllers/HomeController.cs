@@ -25,7 +25,7 @@ namespace DialectWords.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IQueryable<Word>> GetAllWordsForUser(int pageSize = 10, int pageNumber = 1, string searchString = "", string filter = "")
+        public ActionResult<IQueryable<Word>> SozlarJadvali(int pageSize = 10, int pageNumber = 1, string searchString = "", string filter = "")
         {
             IQueryable<Word> words = this.wordService.RetrieveAllWords();
             IQueryable<Word> foundWords;
@@ -122,18 +122,18 @@ namespace DialectWords.Controllers
         }
 
         [HttpGet]
-        public IActionResult PostUser()
+        public IActionResult Aloqa()
         {
             return View();
         }
 
         [HttpPost]
-        public async ValueTask<IActionResult> PostUser(UserViewModel userViewModel)
+        public async ValueTask<IActionResult> Aloqa(UserViewModel userViewModel)
         {
             string result = await this.wordService.CreateUserAsync(userViewModel);
             ViewBag.Message = result;
 
-            return View("PostUser");
+            return View("Aloqa");
         }
     }
 }

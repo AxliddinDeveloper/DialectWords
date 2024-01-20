@@ -22,15 +22,20 @@
             <a asp-area="" asp-controller="Home" asp-action="Index">Bosh sahifa</a>
         </li>
         <li>
-            <a asp-area="" asp-controller="Home" asp-action="GetAllWordsForUser">So'zlar jadvali</a>
+                <a asp-area="" asp-controller="Home" asp-action="SozlarJadvali">So'zlar jadvali</a>
         </li>
         <li>
             <a asp-area="" asp-controller="Home" asp-action="LoyihaHaqida">Loyiha haqida</a>
         </li>
         <li>
-            <a class="active" asp-area="" asp-controller="Home" asp-action="PostUser">Aloqa</a>
+                <a class="active" asp-area="" asp-controller="Home" asp-action="Aloqa">Aloqa</a>
         </li>
     </ul>
+        <ul class="icons">
+            <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+        </ul>
 </nav>
 <section id="main">
         <div class="p-3 bg-white">
@@ -44,7 +49,7 @@
                             <img src="~/images/image (1).jpg" style="width: 100%;height: auto;" />
                         </div>
                         <div class="col-md-6 col-sm-12">
-                            <form method="post" asp-action="PostUser" class="border border-light pr-3">
+                        <form method="post" asp-action="Aloqa" class="border border-light pr-3">
 
                                 <input asp-for="Name" type="text" v-model="name" class="form-control mb-4" placeholder="Ismingiz" required>
                                 <input asp-for="Email" type="email" v-model="email" class="form-control mb-4" placeholder="E-mail manzilingiz" required>

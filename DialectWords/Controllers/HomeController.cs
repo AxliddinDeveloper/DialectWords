@@ -19,11 +19,6 @@ namespace DialectWords.Controllers
             return View();
         }
 
-        public IActionResult salom()
-        {
-            return View();
-        }
-
         public IActionResult LoyihaHaqida()
         {
             return View();

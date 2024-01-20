@@ -10,7 +10,32 @@
     int b = Model.PageNumber;
     if (Model.PageNumber > 1)
         b -= 1;
+
+    ViewBag.Title = "GetAllWordsForUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@{
+    int startPage = Math.Max(1, Model.PageNumber - 2);
+    int endPage = Math.Min(Model.TotalPages, Model.PageNumber + 2);
+
+    // Ensure that startPage and endPage are in the correct range
+    if (endPage - startPage < 4)
+    {
+        if (startPage == 1)
+        {
+            endPage = Math.Min(Model.TotalPages, startPage + 4);
+        }
+        else if (endPage == Model.TotalPages)
+        {
+            startPage = Math.Max(1, endPage - 4);
+        }
+    }
+
+    // Ensure endPage does not exceed TotalPages
+    endPage = Math.Min(endPage, Model.TotalPages);
+}
+
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="~/css/main.css" />
 <noscript><link rel="stylesheet" href="~/css/noscript.css" /></noscript>
@@ -187,15 +212,22 @@
                         </table>
                     </div>
                 </div>
-
-
-            <a asp-action="GetAllWordsForUser" asp-route-pageSize="@g" asp-route-pageNumber="@b" asp-route-searchString="@j" asp-route-filter="@o" class="btn btn-outline-light text-black">
+            <div class="pagination">
+                <a asp-action="GetAllWordsForUser" asp-route-pageSize="@g" asp-route-pageNumber="@(Model.PageNumber - 1)" asp-route-searchString="@j" class="btn btn-outline-light text-black">
                     &lt;&lt;
                 </a>
-                <section class="form-check-inline text-center m-auto">@Model.PageNumber/@Model.TotalPages</section>
-            <a asp-action="GetAllWordsForUser" asp-route-pageSize="@g" asp-route-pageNumber="@a" asp-route-searchString="@j" asp-route-filter="@o" class="btn btn-outline-light text-black">
-                    >>
+
+                @for (int z = startPage; z <= endPage; z++)
+                {
+                    <a asp-action="GetAllWordsForUser" asp-route-pageSize="@g" asp-route-pageNumber="@z" asp-route-searchString="@j" class="btn btn-outline-light text-black @(z == Model.PageNumber ? "active" : "")">
+                        @z
+                    </a>
+                }
+
+                <a asp-action="GetAllWordsForUser" asp-route-pageSize="@g" asp-route-pageNumber="@(Model.PageNumber + 1)" asp-route-searchString="@j" class="btn btn-outline-light text-black">
+                    &gt;&gt;
                 </a>
+            </div>
             </div>
     </section>
 
@@ -372,6 +404,8 @@
 </script>
 
 <!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="~/Scripts/sammy-0.7.4.js">></script>
 <script src="~/js/jquery.min.js"></script>
 <script src="~/js/jquery.scrollex.min.js"></script>
 <script src="~/js/jquery.scrolly.min.js"></script>

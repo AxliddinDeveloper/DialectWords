@@ -11,6 +11,10 @@
     if (Model.PageNumber > 1)
         b -= 1;
 }
+@{
+    int startPage = Math.Max(1, Model.PageNumber - 2);
+    int endPage = Math.Min(Model.TotalPages, Model.PageNumber + 2);
+}
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="~/css/main.css" />
 <noscript><link rel="stylesheet" href="~/css/noscript.css" /></noscript>
@@ -48,6 +52,7 @@
             <form method="get" asp-action="GetAllWords" class="form-group p-2">
                 <label>Qatorlar soni</label>
                 <select asp-for="PageSize" onchange="this.form.submit()" class="form-select">
+                        <option value=2>2</option>
                     <option value=10>10</option>
                     <option value=50>50</option>
                     <option value=100>100</option>
@@ -199,14 +204,22 @@
             </div>
         </div>
 
+            <div class="pagination">
+                <a asp-action="GetAllWords" asp-route-pageSize="@g" asp-route-pageNumber="1" asp-route-searchString="@j" class="btn btn-outline-light text-black">
+                    &lt;&lt;
+                </a>
 
-        <a asp-action="GetAllWords" asp-route-pageSize="@g" asp-route-pageNumber="@b" asp-route-searchString="@j" class="btn btn-outline-light text-black">
-            &lt;&lt;
-        </a>
-        <section class="form-check-inline text-center m-auto">@Model.PageNumber/@Model.TotalPages</section>
-        <a asp-action="GetAllWords" asp-route-pageSize="@g" asp-route-pageNumber="@a" asp-route-searchString="@j" class="btn btn-outline-light text-black">
-            >>
-        </a>
+                @for (int z = startPage; z <= endPage; z++)
+                {
+                    <a asp-action="GetAllWords" asp-route-pageSize="@g" asp-route-pageNumber="@z" asp-route-searchString="@j" class="btn btn-outline-light text-black @(z == Model.PageNumber ? "active" : "")">
+                        @z
+                    </a>
+                }
+
+                <a asp-action="GetAllWords" asp-route-pageSize="@g" asp-route-pageNumber="@Model.TotalPages" asp-route-searchString="@j" class="btn btn-outline-light text-black">
+                    &gt;&gt;
+                </a>
+            </div>
     </div>
 </section>
 

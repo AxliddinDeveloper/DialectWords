@@ -129,9 +129,9 @@ namespace DialectWords.Controllers
         }
 
         [HttpPost]
-        public IActionResult UpdateWord(Word word)
+        public async ValueTask<IActionResult> UpdateWord(Word word)
         {
-            this.wordService.ModifyWordAsync(word);
+            await this.wordService.ModifyWordAsync(word);
 
             return RedirectToAction("GetAllWords");
         }
@@ -143,8 +143,6 @@ namespace DialectWords.Controllers
 
             return RedirectToAction("GetAllWords");
         }
-
-        //===========================================
 
         [HttpGet]
         public ActionResult<IQueryable<User>> GetAllUsers()
